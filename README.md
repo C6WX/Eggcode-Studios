@@ -29,14 +29,14 @@
  7. Eggs
  8. Damage and enemy health 
  9. Enemies and enemy types
+ 10. Camera side scrolling
  #### Game Features And Setting
  - Game Setting - Chicken farm
  - Art Style - Pixel Art
  - 2D platformer
-
+ - Side Scroller
  #### Game Engine
  - Unity
-
  #### Controls
  - A - Move Left
  - D - Move Right
@@ -44,6 +44,7 @@
  - Space(While in the air) - Glide
  - Left Click - Shoot
  - Right Click - Change ammo type
+
 
 
  
