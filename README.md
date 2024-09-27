@@ -12,6 +12,9 @@
 <img src="health bar.jpg" width="200" height="100"> 
 
 
+( https://opengameart.org/content/chicken-sprites ) 
+
+
  #### Weapons
  1. Boiled Egg: single shot projectile that does good damage and travels in a straight line
  2. Cracked Egg: Shotgun like projectile that does lots of damage to close up targets
