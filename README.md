@@ -32,5 +32,13 @@
  #### Game Engine
  - Unity
 
+ #### Controls
+ - A - Move Left
+ - D - Move Right
+ - Space - Jump
+ - Space(While in the air) - Glide
+ - Left Click - Shoot
+ - Right Click - Change ammo type
+
 
  
