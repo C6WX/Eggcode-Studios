@@ -250,7 +250,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -309,6 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be0107e8f7206f43b371ac92057a6ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jump: 500
   moveSpeed: 2
 --- !u!23 &661589138
 MeshRenderer:
@@ -387,7 +388,7 @@ GameObject:
   - component: {fileID: 1093756267}
   - component: {fileID: 1093756266}
   - component: {fileID: 1093756265}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
