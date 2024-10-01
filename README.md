@@ -5,9 +5,9 @@
 - A 2D Platformer where you play as a chicken fighting off foxes by shooting eggs at them.
 
  #### Weapons
- 1. Boiled Egg: single shot projectile that does good damage and travels in a straight line
- 2. Cracked Egg: Shotgun like projectile that does lots of damage to close up targets
- 3. Hard Boiled Egg: A single shot projectile that bounces across the floor until it hits a target
+ 1. Boiled Egg (pistold): single shot projectile that does good damage and travels in a straight line
+ 2. Cracked Egg (shotgun): Shotgun like projectile that does lots of damage to close up targets
+ 3. Hard Boiled Egg (slingshot): A single shot projectile that bounces across the floor until it hits a target
  #### Mechanics
  1. Movement 
  2. Jumping
@@ -33,6 +33,13 @@
  - Space(While in the air) - Glide
  - Left Click - Shoot
  - Right Click - Change ammo type
+ #### Enemy Ideas
+| Enemy | Specail attribute | Attack | Design |
+| --- | --- | --- | --- |
+| Basic Fox | Moves left and right | bites the player when it collides with them  | Dark grey fox with sharp teeth |
+| Pouncing Fox | Pounces at the player when they get near them | Pouce and bite |  |
+| Shooty fox | Stays still | shoots at the player |  |
+| Brawler Fox | Slower than the basic fox and takes more damage | Attacks the player on collision | Big buff wolf |
 
  # Moodboard 
 <img src="chicken.jpg" width="100" height="100"> 
