@@ -42,6 +42,12 @@
 | Shooty fox | Stays still | shoots at the player |  |
 | Brawler Fox | Slower than the basic fox and takes more damage | Attacks the player on collision | Big buff wolf |
 
+ |Chicken |Description | inspiring image |
+ |--------|------------|-----------------|
+ |Player chicken | Brown, yellow beak, yellow or orange feet, slightly smaller than the mother chicken| <img src="chickenprofilestaticx2.gif" width="100" height="100"> 
+ |Mother chicken| slightly bigger, red fluff on head, more of a hen than a chick | <img src="brown mum chicken.png" width="200" height="100">
+ 
+
  # Moodboard 
 <img src="chicken.jpg" width="100" height="100"> 
 <img src="egg.jpg" width="100" height="100"> 
@@ -50,7 +56,8 @@
 <img src="health bar.jpg" width="200" height="100"> 
 
 
-( https://opengameart.org/content/chicken-sprites ) 
+(https://opengameart.org/content/chicken-sprites ) 
+(https://www.megavoxels.com/learn/how-to-make-a-pixel-art-chicken/)
 
 
 
