@@ -5,9 +5,10 @@
 - A 2D Platformer where you play as a chicken fighting off foxes by shooting eggs at them.
 
  #### Weapons
- 1. Boiled Egg (pistold): single shot projectile that does good damage and travels in a straight line
+ 1. Boiled Egg (pistol): single shot projectile that does good damage and travels in a straight line
  2. Cracked Egg (shotgun): Shotgun like projectile that does lots of damage to close up targets
  3. Hard Boiled Egg (slingshot): A single shot projectile that bounces across the floor until it hits a target
+ 4. Rotten Egg (Grenade launcher): A single shot projectile that explodes dealing AOE damage
  #### Mechanics
  1. Movement 
  2. Jumping
