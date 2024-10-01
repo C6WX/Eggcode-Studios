@@ -20,6 +20,7 @@
  8. Damage and enemy health 
  9. Enemies and enemy types
  10. Camera side scrolling
+ 11. Reloading
  #### Game Features And Setting
  - Game Setting - Chicken farm
  - Art Style - Pixel Art
