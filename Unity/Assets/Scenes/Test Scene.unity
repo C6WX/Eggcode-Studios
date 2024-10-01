@@ -226,12 +226,12 @@ GameObject:
   - component: {fileID: 661589139}
   - component: {fileID: 661589138}
   - component: {fileID: 661589137}
+  - component: {fileID: 661589141}
   - component: {fileID: 661589136}
   - component: {fileID: 661589135}
-  - component: {fileID: 661589141}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -389,7 +389,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de3114db59dbfa4e978d26bd6d63da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
 --- !u!1 &1093756264
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,6 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47a03319251c1544dbd5b8a35e02a906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicFoxDamage: 50
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
