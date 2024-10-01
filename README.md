@@ -4,6 +4,8 @@
 ### Egg Platformer
 - A 2D Platformer where you play as a chicken fighting off foxes by shooting eggs at them.
 
+#### Into scene
+- A special unique boss fox kills your mother fox in the nest and then leaves as you hide. after it leaves you reach for a gun hidden in the coop and then head out to hunt the fox. then the 1st level starts.
  #### Weapons
  1. Boiled Egg (pistol): single shot projectile that does good damage and travels in a straight line
  2. Cracked Egg (shotgun): Shotgun like projectile that does lots of damage to close up targets
