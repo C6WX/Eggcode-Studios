@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     public float jump;
     public int moveSpeed = 2;
     bool grounded;
+    public float gravity = 0.5;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +18,29 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //allows the player to move horizontally
         float horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * moveSpeed * Time.deltaTime);
-            
+        
+        //the player can jump when space is pressed and they are touching the ground
         if (Input.GetButtonDown("Jump") && grounded == true)
         {
             rb.AddForce(new Vector2(rb.velocity.x, jump));
-        } 
+        }
+        //when the player presses jump and is in the air, gravity is changed to make the player glide
+        //GLIDING SYSTEM COULD DEFINATELY USE SOME IMPROVEMENTS
+        if (Input.GetButtonDown("Jump") && grounded == false)
+        {
+            rb.gravityScale = gravity;
+        }
+        //when the player touches the ground, gravity is reset back to 2
+        if (grounded == true)
+        {
+            rb.gravityScale = 2;
+        }
     }
 
+    //When the player is touching an object with a Ground tag, grounded = true
     void OnCollisionEnter2D (Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
@@ -34,6 +49,7 @@ public class Movement : MonoBehaviour
         }
     }
 
+    //When the player stops touching the object tagged with the ground tag, grounded = false
     void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))

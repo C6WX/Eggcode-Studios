@@ -14,9 +14,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //NEEDS TO BE WORKED ON. HEALTH IS STILL GOING BELOW 0
         //Stops the health from going below 0
-        if (playerHealth < 0)
+        if (playerHealth <= 0)
         {
             playerHealth = 0;
         }
