@@ -40,3 +40,10 @@ Icon?
 ehthumbs.db
 Thumbs.db
 Unity/Logs/shadercompiler-UnityShaderCompiler.exe2.log
+*.log
+*.log
+*.log
+Unity/Logs/AssetImportWorker0.log
+Unity/Logs/AssetImportWorker1.log
+Unity/Logs/shadercompiler-AssetImportWorker0.log
+Unity/Logs/shadercompiler-UnityShaderCompiler.exe0.log
