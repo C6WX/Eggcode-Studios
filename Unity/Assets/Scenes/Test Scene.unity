@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 432639436}
   - component: {fileID: 432639435}
   - component: {fileID: 432639434}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ Transform:
   m_GameObject: {fileID: 432639433}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.77606, y: 2.7896, z: -10}
+  m_LocalPosition: {x: -0.01, y: 2.7896, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -226,9 +226,10 @@ GameObject:
   - component: {fileID: 898074395}
   - component: {fileID: 898074394}
   - component: {fileID: 898074393}
+  - component: {fileID: 898074398}
   - component: {fileID: 898074391}
   - component: {fileID: 898074397}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -250,7 +251,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -261,7 +262,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &898074393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,6 +356,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 432639436}
+  - {fileID: 1680929423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &898074397
@@ -402,6 +404,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4878321, y: 1.6449833}
   m_EdgeRadius: 0
+--- !u!114 &898074398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898074390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9834a32658672174e86f32b7ff5f6fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7419449862792246499, guid: 1e64bd988952285409fe69e36467fde3, type: 3}
+  firePoint: {fileID: 1680929423}
+  bulletSpeed: 20
+  fireRate: 0.5
+  ammoCount: 6
+  currentGun: pistol
 --- !u!1 &1093756264
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +551,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1680929422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1680929423}
+  m_Layer: 7
+  m_Name: FiringPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1680929423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680929422}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.82, y: -0.22, z: -0.0162519}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 898074396}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1989511605
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +595,6 @@ GameObject:
   - component: {fileID: 1989511607}
   - component: {fileID: 1989511610}
   - component: {fileID: 1989511613}
-  - component: {fileID: 1989511611}
   - component: {fileID: 1989511612}
   m_Layer: 0
   m_Name: Enemy
@@ -653,19 +703,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.000000059604645, y: 0}
   m_Size: {x: 1.0000001, y: 2}
   m_Direction: 0
---- !u!114 &1989511611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1989511605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47a03319251c1544dbd5b8a35e02a906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  basicFoxDamage: 50
 --- !u!114 &1989511612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,6 +715,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb5e04e04388c4459b3fa1f9c6ef69f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicFoxHealth: 30
+  bulletDamage: 20
   moveSpeed: 2
   patrolRange: 5
   chaseSpeed: 2

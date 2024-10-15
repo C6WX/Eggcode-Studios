@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    public int basicFoxHealth = 30;
+    public int bulletDamage = 20; 
+
     public float moveSpeed = 2f;           // Enemy's movement speed
     public float patrolRange = 5f;         // Distance for patrolling
     public float chaseSpeed = 4f;          // Speed when chasing the player
@@ -85,5 +88,13 @@ public class EnemyAI : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Bullet"))
+        {
+            basicFoxHealth = basicFoxHealth - bulletDamage;
+        }
     }
 }

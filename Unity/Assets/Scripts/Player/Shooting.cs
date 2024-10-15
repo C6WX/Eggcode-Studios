@@ -11,6 +11,7 @@ public class Shooting : MonoBehaviour
     private float nextFireTime = 0f;
     public float ammoCount = 6;
     public string currentGun = "pistol";
+    public float bulletLifetime = 2f;
 
     void Update()
     {
@@ -37,5 +38,8 @@ public class Shooting : MonoBehaviour
 
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         firePoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        // Destroy the bullet after a certain amount of time
+        Destroy(bullet, bulletLifetime);
     }
 }
