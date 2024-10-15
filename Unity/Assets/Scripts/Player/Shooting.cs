@@ -6,10 +6,10 @@ public class Shooting : MonoBehaviour
 {
     public GameObject bulletPrefab;      
     public Transform firePoint;          
-    public float bulletSpeed = 20f;      
-    public float fireRate = 0.5f;       
-    private float nextFireTime = 0f;
-    public float ammoCount = 6;
+    public float bulletSpeed;      
+    public float fireRate;       
+    private float nextFireTime;
+    public float ammoCount;
     public string currentGun = "pistol";
     public float bulletLifetime = 2f;
 
@@ -20,6 +20,14 @@ public class Shooting : MonoBehaviour
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
+        }
+
+        if (currentGun == "pistol")
+        {
+            bulletSpeed = 20f;
+            fireRate = 0.5f;
+            nextFireTime = 0f;
+            ammoCount = 6;       
         }
     }
 

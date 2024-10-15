@@ -38,6 +38,11 @@ public class EnemyAI : MonoBehaviour
         {
             Patrol();
         }
+
+        if (basicFoxHealth <= 0) 
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Patrolling movement
