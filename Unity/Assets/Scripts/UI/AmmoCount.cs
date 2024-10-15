@@ -18,6 +18,14 @@ public class AmmoCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ammoCountText.text = (shootingScript.ammoCount.ToString() + "/" + shootingScript.maxAmmo.ToString());
+        if (shootingScript.isReloading == false)
+        {
+            ammoCountText.text = (shootingScript.ammoCount.ToString() + "/" + shootingScript.maxAmmo.ToString());
+        }
+        else
+        {
+            ammoCountText.text = ("Reloading...");
+        }
+        
     }
 }

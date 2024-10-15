@@ -14,7 +14,7 @@ public class Shooting : MonoBehaviour
     public float bulletLifetime = 2f;
     public float reloadTime = 2f;  // Time it takes to reload
     public float maxAmmo = 6;      // Max ammo for pistol (you can adjust for other guns)
-    private bool isReloading = false;
+    public bool isReloading = false;
 
     void Update()
     {
