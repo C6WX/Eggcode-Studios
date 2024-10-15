@@ -4,30 +4,41 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public GameObject bulletPrefab;      
-    public Transform firePoint;          
-    public float bulletSpeed;      
-    public float fireRate;       
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public float bulletSpeed;
+    public float fireRate;
     private float nextFireTime;
     public float ammoCount;
     public string currentGun = "pistol";
     public float bulletLifetime = 2f;
+    public float reloadTime = 2f;  // Time it takes to reload
+    public float maxAmmo = 6;      // Max ammo for pistol (you can adjust for other guns)
+    private bool isReloading = false;
 
     void Update()
     {
-        // Detect shooting input and check if player can shoot based on fire rate
-        if (Input.GetButtonDown("Fire1") && Time.time >= nextFireTime)
+        // Check if the player can shoot (enough ammo, fire rate limit, and not reloading)
+        if (Input.GetButtonDown("Fire1") && Time.time >= nextFireTime && ammoCount > 0 && !isReloading)
         {
             Shoot();
+            ammoCount--;
             nextFireTime = Time.time + fireRate;
         }
 
+        // Set weapon stats based on the current gun
         if (currentGun == "pistol")
         {
             bulletSpeed = 20f;
             fireRate = 0.5f;
             nextFireTime = 0f;
-            ammoCount = 6;       
+            maxAmmo = 6;
+        }
+
+        // Reload script (start reloading if ammo is 0 or player presses 'r')
+        if ((Input.GetKeyDown(KeyCode.R) || ammoCount == 0) && !isReloading)
+        {
+            StartCoroutine(Reload());
         }
     }
 
@@ -44,10 +55,25 @@ public class Shooting : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = direction * bulletSpeed;
 
+        // Rotate the fire point to face the mouse direction
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         firePoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
         // Destroy the bullet after a certain amount of time
         Destroy(bullet, bulletLifetime);
+    }
+
+    IEnumerator Reload()
+    {
+        isReloading = true; // Set reloading to true to prevent shooting while reloading
+        Debug.Log("Reloading...");
+
+        // Wait for the reload time
+        yield return new WaitForSeconds(reloadTime);
+
+        // Refill ammo
+        ammoCount = maxAmmo;
+        isReloading = false;
+        Debug.Log("Reload complete. Ammo refilled.");
     }
 }
