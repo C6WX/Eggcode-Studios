@@ -10,6 +10,7 @@ public class Shooting : MonoBehaviour
     public float fireRate = 0.5f;       
     private float nextFireTime = 0f;
     public float ammoCount = 6;
+    public string currentGun = "pistol";
 
     void Update()
     {
