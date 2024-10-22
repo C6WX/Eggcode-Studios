@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    public GameObject bulletPrefab;      
-    public Transform firePoint;          
-    public float bulletSpeed = 20f;      
-    public float fireRate = 0.5f;       
-    private float nextFireTime = 0f;
-    public float ammoCount = 6;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+    public float bulletSpeed;
+    public float fireRate;
+    private float nextFireTime;
+    public float ammoCount;
     public string currentGun = "pistol";
     public float bulletLifetime = 2f;
     public float reloadTime;
     public float maxAmmo = 6;  // Max ammo for pistol (you can adjust for other guns)
     public bool isReloading = false;
 
-
     void Update()
     {
-        // Detect shooting input and check if player can shoot based on fire rate
-        if (Input.GetButtonDown("Fire1") && Time.time >= nextFireTime)
+        // Check if the player can shoot (enough ammo, fire rate limit, and not reloading)
+        if (Input.GetButtonDown("Fire1") && Time.time >= nextFireTime && ammoCount > 0 && !isReloading)
         {
             Shoot();
+            ammoCount--;
             nextFireTime = Time.time + fireRate;
         }
 
@@ -56,7 +56,25 @@ public class Shooting : MonoBehaviour
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = direction * bulletSpeed;
 
+        // Rotate the fire point to face the mouse direction
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         firePoint.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        // Destroy the bullet after a certain amount of time
+        Destroy(bullet, bulletLifetime);
+    }
+
+    IEnumerator Reload()
+    {
+        isReloading = true; // Set reloading to true to prevent shooting while reloading
+        Debug.Log("Reloading...");
+
+        // Wait for the reload time
+        yield return new WaitForSeconds(reloadTime);
+
+        // Refill ammo
+        ammoCount = maxAmmo;
+        isReloading = false;
+        Debug.Log("Reload complete. Ammo refilled.");
     }
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    public int basicFoxHealth = 30;
+    public int bulletDamage = 20; 
+
     public float moveSpeed = 2f;           // Enemy's movement speed
     public float patrolRange = 5f;         // Distance for patrolling
     public float chaseSpeed = 4f;          // Speed when chasing the player
@@ -13,33 +16,7 @@ public class EnemyAI : MonoBehaviour
     private float patrolStartX;            // Starting X position for patrolling
     private Rigidbody2D rb;                // Enemy's Rigidbody2D component
     private Transform player;              // Reference to the player's Transform
-    public class PlayerHealth : MonoBehaviour
-    {
-        public int maxHealth = 100; // Maximum health value
-        private int currentHealth;  // Current health value
 
-        void Start()
-        {
-            currentHealth = maxHealth;  // Set the player's initial health
-        }
-
-        public void TakeDamage(int damage)
-        {
-            currentHealth -= damage;  // Reduce current health by damage amount
-            Debug.Log("Player took damage, current health: " + currentHealth);
-
-            if (currentHealth <= 0)
-            {
-                Die();
-            }
-        }
-
-        void Die()
-        {
-            Debug.Log("Player has died!");
-            // Add death behavior here, such as triggering a game over screen
-        }
-    }
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -60,6 +37,11 @@ public class EnemyAI : MonoBehaviour
         else
         {
             Patrol();
+        }
+
+        if (basicFoxHealth <= 0) 
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -112,31 +94,12 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, detectionRange);
     }
-}
-public class Bullet : MonoBehaviour
-{
-    public int damageAmount = 10;  // Damage dealt to the enemy upon collision
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D other)
     {
-        // Check if the bullet collides with an object tagged as "Enemy"
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Bullet"))
         {
-            // Get the enemy's health component (assuming there's a script named EnemyAI)
-            EnemyAI enemyAI = collision.gameObject.GetComponent<EnemyAI>();
-            if (enemyAI != null)
-            {
-                // Deal damage to the enemy
-                enemyAI.TakeDamage(damageAmount);
-            }
-
-            // Destroy the bullet after it hits the enemy
-            Destroy(gameObject);
-        }
-        else
-        {
-            // Optionally destroy the bullet if it collides with something else
-            Destroy(gameObject);
+            basicFoxHealth = basicFoxHealth - bulletDamage;
         }
     }
 }
