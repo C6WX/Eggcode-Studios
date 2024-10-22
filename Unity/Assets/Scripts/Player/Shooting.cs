@@ -12,7 +12,7 @@ public class Shooting : MonoBehaviour
     public float ammoCount;
     public string currentGun = "pistol";
     public float bulletLifetime = 2f;
-    public float reloadTime = 2f;  // Time it takes to reload
+    public float reloadTime = 2f;
     public float maxAmmo = 6;      // Max ammo for pistol (you can adjust for other guns)
     public bool isReloading = false;
 
@@ -33,6 +33,7 @@ public class Shooting : MonoBehaviour
             fireRate = 0.5f;
             nextFireTime = 0f;
             maxAmmo = 6;
+            reloadTime = 2f;
         }
 
         // Reload script (start reloading if ammo is 0 or player presses 'r')

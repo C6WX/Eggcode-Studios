@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class Movement : MonoBehaviour
 {
@@ -21,7 +22,17 @@ public class Movement : MonoBehaviour
         //allows the player to move horizontally
         float horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * moveSpeed * Time.deltaTime);
-        
+
+        //changes the way the fox is facing based on the way the player is moving
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+
         //the player can jump when space is pressed and they are touching the ground
         if (Input.GetButtonDown("Jump") && grounded == true)
         {
