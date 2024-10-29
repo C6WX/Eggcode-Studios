@@ -1074,7 +1074,7 @@ GameObject:
   - component: {fileID: 898074393}
   - component: {fileID: 898074398}
   - component: {fileID: 898074391}
-  - component: {fileID: 898074397}
+  - component: {fileID: 898074399}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -1133,9 +1133,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3be0107e8f7206f43b371ac92057a6ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump: 500
+  jump: 300
   moveSpeed: 2
-  gravity: 0.5
+  grounded: 0
 --- !u!212 &898074395
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1197,7 +1197,7 @@ Transform:
   m_GameObject: {fileID: 898074390}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.51, y: -0.05, z: 0}
+  m_LocalPosition: {x: -27.51, y: -0.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1205,8 +1205,30 @@ Transform:
   - {fileID: 613123696}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &898074397
-BoxCollider2D:
+--- !u!114 &898074398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 898074390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9834a32658672174e86f32b7ff5f6fcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 7419449862792246499, guid: 1e64bd988952285409fe69e36467fde3, type: 3}
+  firePoint: {fileID: 613123696}
+  bulletSpeed: 20
+  fireRate: 0.5
+  ammoCount: 6
+  currentGun: pistol
+  bulletLifetime: 2
+  reloadTime: 2
+  maxAmmo: 6
+  isReloading: 0
+--- !u!68 &898074399
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1237,41 +1259,36 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01964426, y: -0.10998213}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.92, y: 1.92}
-    newSize: {x: 1.92, y: 1.92}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.4878321, y: 1.5899308}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
---- !u!114 &898074398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898074390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9834a32658672174e86f32b7ff5f6fcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7419449862792246499, guid: 1e64bd988952285409fe69e36467fde3, type: 3}
-  firePoint: {fileID: 613123696}
-  bulletSpeed: 20
-  fireRate: 0.5
-  ammoCount: 6
-  currentGun: pistol
-  bulletLifetime: 2
-  reloadTime: 2
-  maxAmmo: 6
-  isReloading: 0
+  m_Points:
+  - {x: 0.51039606, y: 0.5748295}
+  - {x: 0.37763786, y: 0.64625204}
+  - {x: 0.19145393, y: 0.635139}
+  - {x: 0.18889618, y: 0.43587756}
+  - {x: -0.010677338, y: 0.19855614}
+  - {x: -0.26183128, y: 0.14023098}
+  - {x: -0.42904663, y: 0.3168153}
+  - {x: -0.53494644, y: 0.4876851}
+  - {x: -0.6512604, y: 0.41645515}
+  - {x: -0.6261616, y: -0.041987777}
+  - {x: -0.35079384, y: -0.47503275}
+  - {x: -0.13809776, y: -0.50773156}
+  - {x: -0.11750221, y: -0.62403154}
+  - {x: -0.012180328, y: -0.8157801}
+  - {x: 0.12421799, y: -0.84349966}
+  - {x: 0.281435, y: -0.8436955}
+  - {x: 0.23635864, y: -0.65062636}
+  - {x: 0.084695816, y: -0.5860277}
+  - {x: 0.09344292, y: -0.4703884}
+  - {x: 0.32653046, y: -0.42311817}
+  - {x: 0.57671356, y: 0.0524382}
+  - {x: 0.703722, y: 0.35302}
+  - {x: 0.5163812, y: 0.57482946}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &1093756264
 GameObject:
   m_ObjectHideFlags: 0
