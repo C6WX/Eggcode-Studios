@@ -10,7 +10,7 @@ public class Shooting : MonoBehaviour
     public float fireRate;
     private float nextFireTime;
     public float ammoCount;
-    public string currentGun = "pistol";
+    public string currentGun = "Pistol";
     public float bulletLifetime = 2f;
     public float reloadTime;
     public float maxAmmo = 6;  // Max ammo for pistol (you can adjust for other guns)
@@ -27,7 +27,7 @@ public class Shooting : MonoBehaviour
         }
 
         // Set weapon stats based on the current gun
-        if (currentGun == "pistol")
+        if (currentGun == "Pistol")
         {
             bulletSpeed = 20f;
             fireRate = 0.5f;
