@@ -6,11 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
 {
-    private int levelUnlocked = 1;
+    public static int levelUnlocked = 1;
     private int levelClickedInt;
-    //private string levelClicked;
-
-    //make it so that it gets the buttons name that is clicked and the loads that scene if the levelUnlocked variable is more than or equal to the level number
 
     // Start is called before the first frame update
     public void Start()
