@@ -20,9 +20,16 @@ public class AmmoCount : MonoBehaviour
     {
         if (shootingScript.isReloading == false)
         {
-            ammoCountText.text = (shootingScript.ammoCount.ToString() + "/" + shootingScript.maxAmmo.ToString());
+            if (shootingScript.currentGun == "Pistol")
+            {
+                ammoCountText.text = (shootingScript.pistolAmmoCount.ToString() + "/" + shootingScript.maxAmmo.ToString());
+            }
+            if (shootingScript.currentGun == "Shotgun")
+            {
+                ammoCountText.text = (shootingScript.shotgunAmmoCount.ToString() + "/" + shootingScript.maxAmmo.ToString());
+            }
         }
-        else
+        if (shootingScript.isReloading == true)
         {
             ammoCountText.text = ("Reloading...");
         }

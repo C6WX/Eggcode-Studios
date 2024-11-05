@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5916943290365447908}
   - component: {fileID: 8472091763311865871}
   m_Layer: 6
-  m_Name: egg
+  m_Name: Pistol shot
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
