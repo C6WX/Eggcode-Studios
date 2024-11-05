@@ -8,21 +8,20 @@ public class EndLevel : MonoBehaviour
     LevelSelect levelSelectScript;
     private void Start()
     {
-        //levelSelectScript = GameObject.FindObjectOfType<LevelSelect>();
+        levelSelectScript = GameObject.FindObjectOfType<LevelSelect>();
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("hi");
         if (other.gameObject.CompareTag("Player"))
         {
             LoadLevelSelect();
         }
     }
-    
-    // Update is called once per frame
     public void LoadLevelSelect()
     {
         //levelSelectScript.levelUnlocked++;
-        levelUnlocked++;
+        levelSelectScript.levelUnlocked++;
         SceneManager.LoadScene("LevelSelect");
     }
 }
