@@ -8,7 +8,7 @@ public class EndLevel : MonoBehaviour
     LevelSelect levelSelectScript;
     private void Start()
     {
-        levelSelectScript = GameObject.Find("1").GetComponent<LevelSelect>().LevelUnlocked;
+        levelSelectScript = GameObject.Find("1").GetComponent<LevelSelect>();
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
@@ -21,7 +21,7 @@ public class EndLevel : MonoBehaviour
     public void LoadLevelSelect()
     {
         //levelSelectScript.levelUnlocked++;
-        levelSelectScript.levelUnlocked++;
-        SceneManager.LoadScene("LevelSelect");
+        LevelSelect.levelUnlocked++;
+        SceneManager.LoadScene("Level Select");
     }
 }
