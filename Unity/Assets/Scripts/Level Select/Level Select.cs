@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
 {
-    public int levelUnlocked = 1;
+    public static int levelUnlocked = 1;
     private int levelClickedInt;
 
     // Start is called before the first frame update
