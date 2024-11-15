@@ -102,7 +102,7 @@ public class Shooting : MonoBehaviour
         if (currentGun == "Pistol")
         {
             // Instantiate the pistol bullet at the fire point position
-        GameObject bullet = Instantiate(pistolBulletPrefab, PistolFirePoint.position, firePoint.rotation);
+            GameObject bullet = Instantiate(pistolBulletPrefab, PistolFirePoint.position, firePoint.rotation);
 
             // Get the Rigidbody2D component from the bullet and apply force in the direction of the mouse
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
