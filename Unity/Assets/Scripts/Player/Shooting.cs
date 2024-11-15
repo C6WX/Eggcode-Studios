@@ -26,7 +26,7 @@ public class Shooting : MonoBehaviour
     {
         levelSelectScript = GameObject.Find("1").GetComponent<LevelSelect>();
         currentGun = "Pistol";
-        if (LevelSelect.levelUnlocked == 3)
+        if (LevelSelect.levelUnlocked >= 3)
         {
             shotgunUnlocked = true;
         }
@@ -54,7 +54,7 @@ public class Shooting : MonoBehaviour
             currentGun = "Pistol";
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && shotgunUnlocked == true) ;
+        if (Input.GetKeyDown(KeyCode.Alpha2) && shotgunUnlocked == true);
         {
             currentGun = "Shotgun";
         }
