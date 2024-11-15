@@ -7,7 +7,7 @@ public class Shooting : MonoBehaviour
     public GameObject pistolBulletPrefab;
     public GameObject shotgunBulletPrefab;
     public Transform firePoint;
-    LevelSelect levelSelectScript;
+    [SerializeField] private LevelSelect levelSelectScript;
     public float bulletSpeed;
     public float fireRate;
     private float nextFireTime;
