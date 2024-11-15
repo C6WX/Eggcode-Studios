@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1706588420508473379}
   - component: {fileID: 1223172454176036486}
   - component: {fileID: 3751345460147586221}
+  - component: {fileID: 5751565978762847415}
   m_Layer: 6
   m_Name: egg (1)
   m_TagString: Bullet
@@ -120,6 +121,18 @@ CircleCollider2D:
   m_Offset: {x: -0.47843933, y: -0.040718347}
   serializedVersion: 2
   m_Radius: 0.32755652
+--- !u!114 &5751565978762847415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64578818271051434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da809437a527d484e94265d3de150705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1925678556035243297
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,6 +144,7 @@ GameObject:
   - component: {fileID: 1005157338508557224}
   - component: {fileID: 767187243435209997}
   - component: {fileID: 3338144465226376998}
+  - component: {fileID: 6994354421612299033}
   m_Layer: 6
   m_Name: egg (2)
   m_TagString: Bullet
@@ -240,6 +254,18 @@ CircleCollider2D:
   m_Offset: {x: -0.47843933, y: -0.040718347}
   serializedVersion: 2
   m_Radius: 0.32755652
+--- !u!114 &6994354421612299033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925678556035243297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da809437a527d484e94265d3de150705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2490281165021938102
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +277,7 @@ GameObject:
   - component: {fileID: 3874549994971604799}
   - component: {fileID: 3644462461161138586}
   - component: {fileID: 1613796386299116465}
+  - component: {fileID: 8287805188639673626}
   m_Layer: 6
   m_Name: egg (4)
   m_TagString: Bullet
@@ -360,6 +387,18 @@ CircleCollider2D:
   m_Offset: {x: -0.47843933, y: -0.040718347}
   serializedVersion: 2
   m_Radius: 0.32755652
+--- !u!114 &8287805188639673626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490281165021938102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da809437a527d484e94265d3de150705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2866952829085931626
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +410,7 @@ GameObject:
   - component: {fileID: 3495670030438989539}
   - component: {fileID: 4023276472093126726}
   - component: {fileID: 1379065402728358509}
+  - component: {fileID: 3440450316457242560}
   m_Layer: 6
   m_Name: egg
   m_TagString: Bullet
@@ -480,6 +520,18 @@ CircleCollider2D:
   m_Offset: {x: -0.47843933, y: -0.040718347}
   serializedVersion: 2
   m_Radius: 0.32755652
+--- !u!114 &3440450316457242560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2866952829085931626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da809437a527d484e94265d3de150705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7121830159949467533
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +679,7 @@ GameObject:
   - component: {fileID: 7236141117377646154}
   - component: {fileID: 7150979519466422511}
   - component: {fileID: 5173371479890875076}
+  - component: {fileID: 3854762040773057191}
   m_Layer: 6
   m_Name: egg (3)
   m_TagString: Bullet
@@ -736,3 +789,15 @@ CircleCollider2D:
   m_Offset: {x: -0.47843933, y: -0.040718347}
   serializedVersion: 2
   m_Radius: 0.32755652
+--- !u!114 &3854762040773057191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296082646314264771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da809437a527d484e94265d3de150705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

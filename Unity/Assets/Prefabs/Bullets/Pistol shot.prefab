@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8195783178350350954}
   - component: {fileID: 8569176486806199503}
-  - component: {fileID: 2989938224781442455}
   - component: {fileID: 5916943290365447908}
   - component: {fileID: 8472091763311865871}
+  - component: {fileID: 2989938224781442455}
+  - component: {fileID: 4292413892459053887}
   m_Layer: 6
   m_Name: Pistol shot
   m_TagString: Bullet
@@ -87,18 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2989938224781442455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7419449862792246499}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 216ebb801c8ce964a97d2e97ede96c50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!58 &5916943290365447908
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -161,3 +150,27 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2989938224781442455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7419449862792246499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 216ebb801c8ce964a97d2e97ede96c50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4292413892459053887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7419449862792246499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da809437a527d484e94265d3de150705, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
