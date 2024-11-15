@@ -11,7 +11,6 @@ public class Shooting : MonoBehaviour
     public float bulletSpeed;
     public float fireRate;
     private float nextFireTime;
-    public float ammoCount;
     public string currentGun;
     public bool shotgunUnlocked = false;
     public float pistolAmmoCount = 6f;
@@ -31,30 +30,33 @@ public class Shooting : MonoBehaviour
             shotgunUnlocked = true;
         }
     }
+
     void Update()
     {
         // Check if the player can shoot (enough ammo, fire rate limit, and not reloading)
-        if (Input.GetButtonDown("Fire1") && Time.time >= nextFireTime && ammoCount > 0 && !isReloading)
+        if (Input.GetButtonDown("Fire1") && Time.time >= nextFireTime && !isReloading)
         {
-            Shoot();
-            //ammoCount--;
-            if (currentGun == "Pistol")
+            if (currentGun == "Pistol" && pistolAmmoCount > 0)
             {
-                pistolAmmoCount--;
+                Shoot();
+                pistolAmmoCount--;  // Deduct ammo for pistol
             }
-            if (currentGun == "Shotgun")
+            else if (currentGun == "Shotgun" && shotgunAmmoCount > 0)
             {
-                shotgunAmmoCount--;
+                Shoot();
+                shotgunAmmoCount--;  // Deduct ammo for shotgun
             }
+
             nextFireTime = Time.time + fireRate;
         }
 
+        // Switch between guns
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             currentGun = "Pistol";
         }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2) && shotgunUnlocked == true);
+        if (Input.GetKeyDown(KeyCode.Alpha2) && shotgunUnlocked)
         {
             currentGun = "Shotgun";
         }
@@ -82,7 +84,7 @@ public class Shooting : MonoBehaviour
         }
 
         // Reload script (start reloading if ammo is 0 or player presses 'r')
-        if ((Input.GetKeyDown(KeyCode.R) && !isReloading || pistolAmmoCount == 0 || shotgunAmmoCount == 0))
+        if (Input.GetKeyDown(KeyCode.R) && !isReloading && (pistolAmmoCount == 0 || shotgunAmmoCount == 0))
         {
             StartCoroutine(Reload());
         }
@@ -97,7 +99,7 @@ public class Shooting : MonoBehaviour
         if (currentGun == "Pistol")
         {
             // Instantiate the pistol bullet at the fire point position
-            GameObject bullet = Instantiate(pistolBulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(pistolBulletPrefab, firePoint.position, firePoint.rotation);
 
             // Get the Rigidbody2D component from the bullet and apply force in the direction of the mouse
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -111,11 +113,12 @@ public class Shooting : MonoBehaviour
             Destroy(bullet, bulletLifetime);
         }
         else if (currentGun == "Shotgun")
-        {
-            // Move the spawn position in front of the player (adjust based on the player's facing direction)
+        {   
+            // Move the spawn position in front of the player
+            // firePoint.up will give us the direction the player is facing
             Vector3 spawnPosition = firePoint.position + firePoint.up * 0.5f;  // Adjust 0.5f to control how far in front of the player the bullet spawns
 
-            // Instantiate the shotgun bullet at the adjusted spawn position
+            // Ensure the spawn position is in front of the player, accounting for player facing direction
             GameObject bullet = Instantiate(shotgunBulletPrefab, spawnPosition, firePoint.rotation);
 
             // Get the Rigidbody2D component from the bullet and apply force in the direction of the mouse
@@ -131,6 +134,8 @@ public class Shooting : MonoBehaviour
         }
     }
 
+
+
     IEnumerator Reload()
     {
         isReloading = true; // Set reloading to true to prevent shooting while reloading
@@ -139,16 +144,16 @@ public class Shooting : MonoBehaviour
         // Wait for the reload time
         yield return new WaitForSeconds(reloadTime);
 
-        // Refill ammo
-        //ammoCount = maxAmmo;
+        // Refill ammo based on the current gun
         if (currentGun == "Pistol")
         {
             pistolAmmoCount = maxAmmo;
         }
-        if (currentGun == "Shotgun")
+        else if (currentGun == "Shotgun")
         {
             shotgunAmmoCount = maxAmmo;
         }
+
         isReloading = false;
         Debug.Log("Reload complete. Ammo refilled.");
     }

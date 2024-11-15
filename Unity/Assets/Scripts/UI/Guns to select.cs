@@ -11,7 +11,7 @@ public class Gunstoselect : MonoBehaviour
     string shotgunText = "2 - Shotgun";
     
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         gunsToSelectText = GetComponent<TMP_Text>();
         shootingScript = GameObject.FindObjectOfType<Shooting>();
@@ -19,7 +19,7 @@ public class Gunstoselect : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (shootingScript.shotgunUnlocked == false)
         {
