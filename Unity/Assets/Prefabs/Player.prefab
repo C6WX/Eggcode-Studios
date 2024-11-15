@@ -30,7 +30,9 @@ Transform:
   m_LocalPosition: {x: 0.75, y: -0.11, z: 0.029945122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4852708281885097085}
+  - {fileID: 4561922561726750566}
   m_Father: {fileID: 2737641143826490078}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &475072623772828323
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f3e4f4a2166effd45beed9202857b4f2, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 2.85, y: 3.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1440923823015655836
@@ -100,6 +102,37 @@ MonoBehaviour:
   sprites:
   - {fileID: 21300000, guid: f3e4f4a2166effd45beed9202857b4f2, type: 3}
   - {fileID: 21300000, guid: 4fdb1d23d06960141be099b719df42e4, type: 3}
+--- !u!1 &2042863570156754904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4852708281885097085}
+  m_Layer: 0
+  m_Name: ShotgunFirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4852708281885097085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042863570156754904}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5681892655593519387}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2974569094604936777
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,11 +266,11 @@ MonoBehaviour:
   pistolBulletPrefab: {fileID: 7419449862792246499, guid: 1e64bd988952285409fe69e36467fde3, type: 3}
   shotgunBulletPrefab: {fileID: 7121830159949467533, guid: e6bbdad6123cd5a4c8c189b5c696c2a1, type: 3}
   firePoint: {fileID: 5681892655593519387}
+  levelSelectScript: {fileID: 0}
   bulletSpeed: 20
   fireRate: 0.5
-  ammoCount: 6
   currentGun: Pistol
-  shotgunUnlocked: 0
+  shotgunUnlocked: 1
   pistolAmmoCount: 6
   shotgunAmmoCount: 4
   bulletLifetime: 2
@@ -245,6 +278,8 @@ MonoBehaviour:
   bulletDamage: 0
   maxAmmo: 6
   isReloading: 0
+  ShotGunFirePoint: {fileID: 4852708281885097085}
+  PistolFirePoint: {fileID: 5681892655593519387}
 --- !u!50 &5493774548398608191
 Rigidbody2D:
   serializedVersion: 4
@@ -426,3 +461,34 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6754854550913115283}
   m_Enabled: 1
+--- !u!1 &7890187167443824716
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4561922561726750566}
+  m_Layer: 0
+  m_Name: PistolFirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4561922561726750566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7890187167443824716}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5681892655593519387}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
