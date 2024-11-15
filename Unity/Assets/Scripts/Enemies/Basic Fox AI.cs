@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour
 {
     public int basicFoxHealth = 30;
-    public int bulletDamage = 20; 
+    Shooting shootingScript;
 
     public float moveSpeed = 2f;           // Enemy's movement speed
     public float patrolRange = 5f;         // Distance for patrolling
@@ -22,6 +22,7 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         patrolStartX = transform.position.x;  // Set patrol starting point
         player = GameObject.FindGameObjectWithTag("Player").transform;  // Find the player using tag
+        shootingScript = GameObject.FindObjectOfType<Shooting>();
     }
 
     void Update()
@@ -99,7 +100,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Bullet"))
         {
-            basicFoxHealth = basicFoxHealth - bulletDamage;
+            basicFoxHealth = basicFoxHealth - shootingScript.bulletDamage;
         }
     }
 }
