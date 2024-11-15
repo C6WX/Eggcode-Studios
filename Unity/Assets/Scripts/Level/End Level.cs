@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
 {
-    LevelSelect levelSelectScript;
+    [SerializeField] private LevelSelect levelSelectScript;
     private void Start()
     {
         levelSelectScript = GameObject.Find("1").GetComponent<LevelSelect>();
