@@ -10,11 +10,13 @@ public class Movement : MonoBehaviour
     public int moveSpeed = 2;
     public bool grounded;
     private float gravity = 0.5f;
+    private SpriteRenderer spriteRenderer; 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -28,10 +30,12 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
+            // spriteRenderer.flipX = true;
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             transform.localScale = new Vector3(1f, 1f, 1f);
+            //// spriteRenderer.flipX = false;
         }
 
         //the player can jump when space is pressed and they are touching the ground

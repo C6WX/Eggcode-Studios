@@ -21,6 +21,9 @@ public class Shooting : MonoBehaviour
     public float maxAmmo = 6;  // Max ammo for pistol (you can adjust for other guns)
     public bool isReloading = false;
 
+    [SerializeField] private Transform ShotGunFirePoint;
+    [SerializeField] private Transform PistolFirePoint;
+    private Transform SpawnPoint;
     private void Start()
     {
         levelSelectScript = GameObject.Find("1").GetComponent<LevelSelect>();
@@ -79,7 +82,7 @@ public class Shooting : MonoBehaviour
             nextFireTime = 0.5f;
             maxAmmo = 4;
             reloadTime = 3f;
-            bulletLifetime = 0.5f;
+            bulletLifetime = 1f;
             bulletDamage = 20;
         }
 
@@ -99,7 +102,7 @@ public class Shooting : MonoBehaviour
         if (currentGun == "Pistol")
         {
             // Instantiate the pistol bullet at the fire point position
-        GameObject bullet = Instantiate(pistolBulletPrefab, firePoint.position, firePoint.rotation);
+            GameObject bullet = Instantiate(pistolBulletPrefab, PistolFirePoint.position, firePoint.rotation);
 
             // Get the Rigidbody2D component from the bullet and apply force in the direction of the mouse
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
@@ -116,10 +119,10 @@ public class Shooting : MonoBehaviour
         {   
             // Move the spawn position in front of the player
             // firePoint.up will give us the direction the player is facing
-            Vector3 spawnPosition = firePoint.position + firePoint.up * 0.5f;  // Adjust 0.5f to control how far in front of the player the bullet spawns
+            //Vector3 spawnPosition = firePoint.position + firePoint.up * 0.5f;  // Adjust 0.5f to control how far in front of the player the bullet spawns
 
             // Ensure the spawn position is in front of the player, accounting for player facing direction
-            GameObject bullet = Instantiate(shotgunBulletPrefab, spawnPosition, firePoint.rotation);
+            GameObject bullet = Instantiate(shotgunBulletPrefab, ShotGunFirePoint.position, firePoint.rotation);
 
             // Get the Rigidbody2D component from the bullet and apply force in the direction of the mouse
             Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
