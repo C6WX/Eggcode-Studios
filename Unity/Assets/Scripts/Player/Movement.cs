@@ -10,13 +10,17 @@ public class Movement : MonoBehaviour
     public int moveSpeed = 2;
     public bool grounded;
     private float gravity = 0.5f;
-    private SpriteRenderer spriteRenderer; 
+    private SpriteRenderer spriteRenderer;
+
+    private AudioSource[] audioSources;
+    private int biteAudioIndex = 0;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSources = GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -63,8 +67,11 @@ public class Movement : MonoBehaviour
         {
             grounded = true;
         }
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            audioSources[biteAudioIndex].Play();
+        }
     }
-
     //When the player stops touching the object tagged with the ground tag, grounded = false
     void OnCollisionExit2D(Collision2D other)
     {
