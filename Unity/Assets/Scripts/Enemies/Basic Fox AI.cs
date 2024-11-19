@@ -17,12 +17,15 @@ public class EnemyAI : MonoBehaviour
     private Rigidbody2D rb;                // Enemy's Rigidbody2D component
     private Transform player;              // Reference to the player's Transform
 
+    private AudioSource audioSource;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         patrolStartX = transform.position.x;  // Set patrol starting point
         player = GameObject.FindGameObjectWithTag("Player").transform;  // Find the player using tag
         shootingScript = GameObject.FindObjectOfType<Shooting>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -101,6 +104,9 @@ public class EnemyAI : MonoBehaviour
         if (other.gameObject.CompareTag("Bullet"))
         {
             basicFoxHealth = basicFoxHealth - shootingScript.bulletDamage;
+            audioSource.Play();
         }
+
+
     }
 }
