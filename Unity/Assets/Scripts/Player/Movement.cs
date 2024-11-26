@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     private Rigidbody2D rb;
     public float jump = 200f;
     public int moveSpeed = 2;
-    public bool grounded;
+    public bool grounded = true;
     private bool wasInAir = false;
     private float gravity = 0.5f;
     private SpriteRenderer spriteRenderer;
