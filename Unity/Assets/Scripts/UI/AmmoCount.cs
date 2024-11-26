@@ -32,7 +32,6 @@ public class AmmoCount : MonoBehaviour
         if (shootingScript.isReloading == true)
         {
             ammoCountText.text = ("Reloading...");
-        }
-        
+        }       
     }
 }
