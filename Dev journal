@@ -602,6 +602,221 @@ public class Player : MonoBehaviour
 ```
 *Figure 7. A script to manage the player's health so that when the player collides with an enemy, they take damage. Also when the player dies, the level resets.*
 
+<br>
+
+- After, I worked on multiple UI scripts to display information for the player on the UI.
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class PlayerHealth : MonoBehaviour
+{
+    TMP_Text playerHealthText;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        playerHealthText = GetComponent<TMP_Text>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        playerHealthText.text = ("Health: ") + Player.playerHealth;
+    }
+}
+```
+*Figure 8. The script that displays the player's current health on the UI*
+
+<br>
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class Gunstoselect : MonoBehaviour
+{
+    TMP_Text gunsToSelectText;
+    Shooting shootingScript;
+    string pistolText = "1 - Pistol";
+    string shotgunText = "2 - Shotgun";
+    
+    // Start is called before the first frame update
+    private void Start()
+    {
+        gunsToSelectText = GetComponent<TMP_Text>();
+        shootingScript = GameObject.FindObjectOfType<Shooting>();
+        
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        if (shootingScript.shotgunUnlocked == false)
+        {
+            gunsToSelectText.text = pistolText;
+        }
+        else if (shootingScript.shotgunUnlocked == true)
+        {
+            gunsToSelectText.text = pistolText + "\n" + shotgunText;
+        }
+    }
+}
+```
+*Figure 9. Displays the GunsToSelect script which displays the guns that are useable.*
+
+<br>
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+
+public class AmmoCount : MonoBehaviour
+{
+    TMP_Text ammoCountText;
+    Shooting shootingScript;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        ammoCountText = GetComponent<TMP_Text>();
+        shootingScript = GameObject.FindObjectOfType<Shooting>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (shootingScript.isReloading == false)
+        {
+            if (shootingScript.currentGun == "Pistol")
+            {
+                ammoCountText.text = (shootingScript.pistolAmmoCount.ToString() + "/" + shootingScript.maxAmmo.ToString());
+            }
+            if (shootingScript.currentGun == "Shotgun")
+            {
+                ammoCountText.text = (shootingScript.shotgunAmmoCount.ToString() + "/" + shootingScript.maxAmmo.ToString());
+            }
+        }
+        if (shootingScript.isReloading == true)
+        {
+            ammoCountText.text = ("Reloading...");
+        }       
+    }
+}
+
+```
+*Figure 10. The ammo count script displays the players current ammo count. When the player is reloading it shows "Reloading..."*
+
+<br>
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class CurrentGun : MonoBehaviour
+{
+    TMP_Text currentGunText;
+    Shooting shootingScript;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        currentGunText = GetComponent<TMP_Text>();
+        shootingScript = GameObject.FindObjectOfType<Shooting>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        currentGunText.text = ("Gun: " + shootingScript.currentGun);
+    }
+}
+```
+*Figure 11. The current gun script displays the current gun that the player is using.*
+
+<br>
+
+- After completing the UI, I added an end level script
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class EndLevel : MonoBehaviour
+{
+    [SerializeField] private LevelSelect levelSelectScript;
+    private void Start()
+    {
+        levelSelectScript = GameObject.Find("1").GetComponent<LevelSelect>();
+    }
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("hi");
+        if (other.gameObject.CompareTag("Player"))
+        {
+            LoadLevelSelect();
+        }
+    }
+    public void LoadLevelSelect()
+    {
+        //levelSelectScript.levelUnlocked++;
+        LevelSelect.levelUnlocked++;
+        SceneManager.LoadScene("Level Select");
+    }
+}
+
+```
+*Figure 12. EndLevel script makes it so that when the player collides with the end coop, the level select scene is loaded and unlocks the next level using an int variable call levelUnlocked.*
+
+<br>
+
+- After finishing this script, I added the level select scene and programmed it.
+
+```csharp
+using JetBrains.Annotations;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class LevelSelect : MonoBehaviour
+{
+    [HideInInspector] public static int levelUnlocked = 1;
+    private int levelClickedInt;
+
+    // Start is called before the first frame update
+    public void Start()
+    {
+        //gets the name of the object the script is on
+        string levelClicked = gameObject.name;
+        //changes the levelClicked variable to an int variable
+        levelClickedInt = int.Parse(levelClicked);
+    }
+
+    public void LevelClicked()
+    {
+       if (levelClickedInt <= levelUnlocked)
+        {
+            //loads the level based on levelClickedInt
+            SceneManager.LoadScene(levelClickedInt);
+        }
+    }
+}
+```
+*Figure 13. The LevelSelect script tracks the levels completed and unlocked with the levelUnlocked. When a level is completed, the levelUnlocked variable is increased by 1. This script goes on each level button and the script gets the buttons name, which is the same as the number of the level, then it changes it into an int variable which is compared to the levelUnlocked variable to determine if the button will take the player to the level. *
+
+
 # Outcome (The Final Product)
 
 Leave links
