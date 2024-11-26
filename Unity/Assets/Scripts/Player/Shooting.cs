@@ -24,14 +24,21 @@ public class Shooting : MonoBehaviour
     [SerializeField] private Transform ShotGunFirePoint;
     [SerializeField] private Transform PistolFirePoint;
     private Transform SpawnPoint;
+
+    private AudioSource[] audioSources;
+    private int biteAudioIndex = 0;
+    private int gunShotAudioIndex = 1;
+    private int jumpAudioIndex = 2;
+    private int landAudioIndex = 3;
     private void Start()
     {
         levelSelectScript = GameObject.Find("1").GetComponent<LevelSelect>();
+        audioSources = GetComponents<AudioSource>();
         currentGun = "Pistol";
         if (LevelSelect.levelUnlocked >= 3)
         {
             shotgunUnlocked = true;
-        }
+        }        
     }
 
     void Update()
@@ -43,6 +50,10 @@ public class Shooting : MonoBehaviour
             {
                 Shoot();
                 pistolAmmoCount--;  // Deduct ammo for pistol
+                if (!audioSources[gunShotAudioIndex].isPlaying)
+                {
+                    audioSources[gunShotAudioIndex].Play();       
+                }
             }
             else if (currentGun == "Shotgun" && shotgunAmmoCount > 0)
             {
