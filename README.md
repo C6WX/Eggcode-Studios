@@ -1,4 +1,12 @@
-# Eggcode-Studios
+# Eggcode-Studios - READ ME
+
+# How it will run 
+
+To run the project, we will first create a build of the game by compiling all the necessary files and assets. Once the build is ready, we will upload it to itch.io This way, people can access and enjoy the project we've developed.
+
+# key features of the game 
+
+In this action-packed 2D platformer, you play as a brave chicken seeking revenge against a special fox who killed your mother. The game begins with a dramatic scene where the fox attacks your nest, prompting you to seek justice by arming yourself with various egg-based weapons. As you venture through the levels, you can use different types of eggs: the Boiled Egg (pistol) for single-shot precision, the Cracked Egg (shotgun) for close-range damage, the Hard Boiled Egg (slingshot) that bounces and hits targets, and the Rotten Egg (grenade launcher) for explosive area damage. The game features smooth side-scrolling mechanics with intuitive controls for movement, jumping, gliding, shooting, and switching ammo types. Set in a pixel-art chicken farm, this game combines engaging combat with a variety of enemies and challenging level designs. Powered by Unity, the game allows for a unique mix of strategy and action as you battle through hordes of foxes and other enemies. 
 
 # Game ideas
 ### Egg Platformer
