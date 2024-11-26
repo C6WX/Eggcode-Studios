@@ -3,12 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\2404781\\Documents\\GitHub\\Eggcode-Studios\\Unity\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}|Assembly-CSharp.csproj|c:\\users\\2404781\\documents\\github\\eggcode-studios\\unity\\assets\\scripts\\level select\\level select.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\level select\\level select.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}|Assembly-CSharp.csproj|c:\\users\\2404781\\documents\\github\\eggcode-studios\\unity\\assets\\scripts\\main menu\\main menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\main menu\\main menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}|Assembly-CSharp.csproj|c:\\users\\2404781\\documents\\github\\eggcode-studios\\unity\\assets\\scripts\\player\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}|Assembly-CSharp.csproj|c:\\users\\2404781\\documents\\github\\eggcode-studios\\unity\\assets\\scripts\\player\\movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\movement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}|Assembly-CSharp.csproj|c:\\users\\2404781\\documents\\github\\eggcode-studios\\unity\\assets\\scripts\\player\\shooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CD8C9303-404B-FB8D-6B9B-21988D5CAC0A}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\shooting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\2404781\\Documents\\GitHub\\3D-Platformer\\Don\u0027t Fall prototype\\Assets\\Scripts\\Player\\PlayerMovement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +30,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Level Select.cs",
-              "DocumentMoniker": "C:\\Users\\2404781\\Documents\\GitHub\\Eggcode-Studios\\Unity\\Assets\\Scripts\\Level Select\\Level Select.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Level Select\\Level Select.cs",
-              "ToolTip": "C:\\Users\\2404781\\Documents\\GitHub\\Eggcode-Studios\\Unity\\Assets\\Scripts\\Level Select\\Level Select.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Level Select\\Level Select.cs",
+              "Title": "Main Menu.cs",
+              "DocumentMoniker": "C:\\Users\\2404781\\Documents\\GitHub\\Eggcode-Studios\\Unity\\Assets\\Scripts\\Main Menu\\Main Menu.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Main Menu\\Main Menu.cs",
+              "ToolTip": "C:\\Users\\2404781\\Documents\\GitHub\\Eggcode-Studios\\Unity\\Assets\\Scripts\\Main Menu\\Main Menu.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Main Menu\\Main Menu.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T14:13:53.726Z",
+              "WhenOpened": "2024-11-26T13:42:23.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PlayerMovement.cs",
+              "DocumentMoniker": "C:\\Users\\2404781\\Documents\\GitHub\\3D-Platformer\\Don\u0027t Fall prototype\\Assets\\Scripts\\Player\\PlayerMovement.cs",
+              "RelativeDocumentMoniker": "..\\..\\3D-Platformer\\Don\u0027t Fall prototype\\Assets\\Scripts\\Player\\PlayerMovement.cs",
+              "ToolTip": "C:\\Users\\2404781\\Documents\\GitHub\\3D-Platformer\\Don\u0027t Fall prototype\\Assets\\Scripts\\Player\\PlayerMovement.cs",
+              "RelativeToolTip": "..\\..\\3D-Platformer\\Don\u0027t Fall prototype\\Assets\\Scripts\\Player\\PlayerMovement.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAHAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T13:33:01.256Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Bullet.cs",
-              "DocumentMoniker": "C:\\Users\\2404781\\Documents\\GitHub\\Eggcode-Studios\\Unity\\Assets\\Scripts\\Player\\Bullet.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Bullet.cs",
-              "ToolTip": "C:\\Users\\2404781\\Documents\\GitHub\\Eggcode-Studios\\Unity\\Assets\\Scripts\\Player\\Bullet.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Player\\Bullet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA2AAAAAAAAAA==",
+              "Title": "Movement.cs",
+              "DocumentMoniker": "C:\\Users\\2404781\\Documents\\GitHub\\Eggcode-Studios\\Unity\\Assets\\Scripts\\Player\\Movement.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Movement.cs",
+              "ToolTip": "C:\\Users\\2404781\\Documents\\GitHub\\Eggcode-Studios\\Unity\\Assets\\Scripts\\Player\\Movement.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\Movement.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-05T14:13:10.468Z",
+              "WhenOpened": "2024-11-26T13:28:24.571Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Shooting.cs",
+              "DocumentMoniker": "C:\\Users\\2404781\\Documents\\GitHub\\Eggcode-Studios\\Unity\\Assets\\Scripts\\Player\\Shooting.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\Shooting.cs",
+              "ToolTip": "C:\\Users\\2404781\\Documents\\GitHub\\Eggcode-Studios\\Unity\\Assets\\Scripts\\Player\\Shooting.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\Shooting.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwDYAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T13:26:57.354Z",
               "EditorCaption": ""
             }
           ]
