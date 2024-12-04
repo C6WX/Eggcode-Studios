@@ -25,7 +25,7 @@ Simplified template
 
 # How Did I Make It?
 
-<br>We approached the development of the game by dividing tasks effectively between us. Callum primarily handled the coding, guiding me along the way by using comments in the code to explain functions and processes. Meanwhile, I focused on the level design, creating the sprites, and sourcing images that inspired and brought our ideas to life. I also selected the background music and some sound effects, which we both reviewed and agreed suited the game. This collaboration allowed us to combine our skills and creativity, ensuring a smooth development process and a cohesive final product.</br>
+<br>We approached the development of the game by dividing tasks effectively between us. Callum primarily handled the coding, guiding me along the way by using comments in the code to explain functions and processes. Meanwhile, I focused on the level design, creating the sprites, and sourcing images(@UnityAssetStore, 2022) that inspired and brought our ideas to life. I also selected the background music and some sound effects (Uppbeat.io, 2024), which we both reviewed and agreed suited the game. This collaboration allowed us to combine our skills and creativity, ensuring a smooth development process and a cohesive final product.</br>
 
 ## Implementation
 - First I started by making the movement script for the player.
@@ -836,6 +836,10 @@ public class LevelSelect : MonoBehaviour
 
 ## Declared Assets 
 
-https://assetstore.unity.com/publishers/67934 - tile map we used for the level 
+@UnityAssetStore. (2022). Superposition Principle - Asset Store. [online] Available at: https://assetstore.unity.com/publishers/67934 [Accessed 4 Dec. 2024]. (@UnityAssetStore, 2022)
 
-https://uppbeat.io/browse/search?query=pistol%20gun&type=sfx - website we used for our sound effects 
+‌ - tile map we used for the level 
+
+Uppbeat.io. (2024). Free Music For Creators. [online] Available at: https://uppbeat.io/browse/search?query=pistol%20gun&type=sfx [Accessed 4 Dec. 2024].(Uppbeat.io, 2024) 
+
+‌ - website we used for our sound effects 
