@@ -22,6 +22,18 @@ Simplified template
 
 <br>Our research proved valuable in shaping our project. It gave us a clear and solid vision of what we wanted to create, providing a secure foundation for the entire development process. With a well-defined idea in place, we were able to identify exactly what needed to be done and estimate the time required for each task. This clarity allowed us to approach the project with confidence and efficiency, ensuring that all elements aligned with our overall goals and vision.</br>
 
+## What websites did I use?
+
+The main website I used was the unity documentation, specifically the documentation on instantiating objects and on using ienumerators and coroutines(Technologies, s.d.).
+
+The first website, on instantiating objects, helped me to create the bullets that the player shoots. The website taught me how to layout an instantiate script so that I can control the location of where the bullet spawns and the objects rotation. Also it showed me how to organise the objects so that all the bullets spawn inside of a parent to keep the hierarchy tidy instead of having it full of bullet clones.
+
+I found this website to be very informative on instantiating objects as it tells you everything there is to instantiating from the basics to setting the clones a parent object and setting the clones velocity when it spawns.
+
+The second website, on using ienumerators and coroutines, helped me to add reloading to the game as I needed to make a script that reloaded the player's bullets after a few seconds whenever they press R or when they run out of ammo. The website showed me how to use a coroutine to wait a specific amount of time by using yield return new WaitForSeconds(waitTime);. The website also shows how coroutines can be stopped using code, which I didn't need but I still found it interesting and good to know for future projects.
+
+I found this website to be very full on, this is because it goes very in depth on the ins and outs of coroutines even though I only needed the basics. However this isn't a bad thing since I can come back to read the rest of the website in the future when I need to use coroutines again.
+
 
 # How Did I Make It?
 
@@ -64,49 +76,50 @@ void Update()
 
 - Then I added a gliding mechanic so that when the player holds jump, they can fall slower in the air
 <br>
+
 ```csharp
- void Update()
- {
-     //allows the player to move horizontally
-     float horizontalInput = Input.GetAxis("Horizontal");
-     rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+void Update()
+{
+    //allows the player to move horizontally
+    float horizontalInput = Input.GetAxis("Horizontal");
+    rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
 
-     //changes the way the fox is facing based on the way the player is moving
-     if (Input.GetKeyDown(KeyCode.A))
-     {
-         transform.localScale = new Vector3(-1f, 1f, 1f);
-         // spriteRenderer.flipX = true;
-     }
-     if (Input.GetKeyDown(KeyCode.D))
-     {
-         transform.localScale = new Vector3(1f, 1f, 1f);
-         //// spriteRenderer.flipX = false;
-     }
+    //changes the way the fox is facing based on the way the player is moving
+    if (Input.GetKeyDown(KeyCode.A))
+    {
+        transform.localScale = new Vector3(-1f, 1f, 1f);
+        // spriteRenderer.flipX = true;
+    }
+    if (Input.GetKeyDown(KeyCode.D))
+    {
+        transform.localScale = new Vector3(1f, 1f, 1f);
+        //// spriteRenderer.flipX = false;
+    }
 
-     //the player can jump when space is pressed and they are touching the ground
-     if (Input.GetButtonDown("Jump") && grounded == true)
-     {
-         rb.AddForce(new Vector2(rb.velocity.x, jump));
-         wasInAir = true;
-         audioSources[jumpAudioIndex].Play();
-     }
-     //when the player presses jump and is in the air, gravity is changed to make the player glide
-     //GLIDING SYSTEM COULD DEFINATELY USE SOME IMPROVEMENTS
-     if (Input.GetButtonDown("Jump") && grounded == false)
-     {
-         rb.gravityScale = gravity;
-     }
-     //when the player touches the ground, gravity is reset back to 2
-     if (grounded == true)
-     {
-         rb.gravityScale = 1;
-     }
-     if (wasInAir == true && grounded == true)
-     {
-         wasInAir = false;
-         audioSources[landAudioIndex].Play();
-     }
- }
+    //the player can jump when space is pressed and they are touching the ground
+    if (Input.GetButtonDown("Jump") && grounded == true)
+    {
+        rb.AddForce(new Vector2(rb.velocity.x, jump));
+        wasInAir = true;
+        audioSources[jumpAudioIndex].Play();
+    }
+    //when the player presses jump and is in the air, gravity is changed to make the player glide
+    //GLIDING SYSTEM COULD DEFINATELY USE SOME IMPROVEMENTS
+    if (Input.GetButtonDown("Jump") && grounded == false)
+    {
+        rb.gravityScale = gravity;
+    }
+    //when the player touches the ground, gravity is reset back to 2
+    if (grounded == true)
+    {
+        rb.gravityScale = 1;
+    }
+    if (wasInAir == true && grounded == true)
+    {
+        wasInAir = false;
+        audioSources[landAudioIndex].Play();
+    }
+}
 ```
 *Figure 2. Shows the movement script with the gliding added to it*
 
@@ -833,6 +846,12 @@ public class LevelSelect : MonoBehaviour
 
 ## What would you do differently?
 <br>Upon reflection, there are a few things I would do differently. Firstly, I would aim to stay more consistent with the project timeline, as I fell behind in the first few weeks due to personal issues. Addressing this earlier would have helped maintain steady progress. Secondly, I would focus on improving my coding skills so that I could contribute more effectively to the technical aspects of the project, in addition to my work on the art and design. These changes would not only enhance my contribution but also provide a more balanced workload and a deeper understanding of the development process.</br>
+
+## Bibliography
+-Technologies, U. (s.d.) Unity - Scripting API: Object.Instantiate. At: https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Object.Instantiate.html (Accessed  05/12/2024).
+
+-Technologies, U. (s.d.) Unity - Scripting API: MonoBehaviour.StartCoroutine. At: https://docs.unity3d.com/6000.0/Documentation/ScriptReference/MonoBehaviour.StartCoroutine.html (Accessed  05/12/2024).
+
 
 ## Declared Assets 
 
