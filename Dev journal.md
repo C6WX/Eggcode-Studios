@@ -840,6 +840,15 @@ public class LevelSelect : MonoBehaviour
 <img width="200" height="200" src="chicken.jpg">
 <br>
 <img width="200" height="200" src="egg.png">  
+<br>
+<img width="200" height="200" src="fox.png">  
+<br>
+<img width="200" height="200" src="pistol.png"> 
+<br>
+<img width="200" height="200" src="shotgun.png"> 
+<br>
+<img width="200" height="200" src="Level1Start.png"> 
+<br>
 
 # Reflection
 
