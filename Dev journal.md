@@ -837,6 +837,7 @@ public class LevelSelect : MonoBehaviour
 - [Game Build](https://c6wx.itch.io/eggs-of-vengeance)
 - [Github](https://github.com/C6WX/Eggcode-Studios)
 
+# Game Images
 <img width="200" height="200" src="chicken.jpg">
 <br>
 <img width="200" height="200" src="egg.png">  
@@ -847,7 +848,13 @@ public class LevelSelect : MonoBehaviour
 <br>
 <img width="200" height="200" src="shotgun.png"> 
 <br>
-<img width="200" height="200" src="Level1Start.png"> 
+<img width="400" height="250" src="Level1Start .png"> 
+<br>
+<br>
+<img width="400" height="250" src="Level3Fox.png"> 
+<br>
+<br>
+<img width="400" height="250" src="Level4Foxes.png"> 
 <br>
 
 # Reflection
