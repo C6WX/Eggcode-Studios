@@ -838,23 +838,23 @@ public class LevelSelect : MonoBehaviour
 - [Github](https://github.com/C6WX/Eggcode-Studios)
 
 # Game Images
-<img width="200" height="200" src="chicken.jpg">
+<img width="200" height="200" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/chicken.jpg">
 <br>
-<img width="200" height="200" src="egg.png">  
+<img width="200" height="200" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/egg.png">  
 <br>
-<img width="200" height="200" src="fox.png">  
+<img width="200" height="200" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/fox.png">  
 <br>
-<img width="200" height="200" src="pistol.png"> 
+<img width="200" height="200" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/pistol.png"> 
 <br>
-<img width="200" height="200" src="shotgun.png"> 
+<img width="200" height="200" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/shotgun.png"> 
 <br>
-<img width="400" height="250" src="Level1Start .png"> 
-<br>
-<br>
-<img width="400" height="250" src="Level3Fox.png"> 
+<img width="400" height="250" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/Level1Start%20.png"> 
 <br>
 <br>
-<img width="400" height="250" src="Level4Foxes.png"> 
+<img width="400" height="250" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/Level3Fox.png"> 
+<br>
+<br>
+<img width="400" height="250" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/Level4Foxes.png"> 
 <br>
 
 # Reflection
