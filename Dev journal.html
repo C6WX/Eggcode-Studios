@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dev journal.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="development-journal">Development-journal</h1>
+<p>Simplified template</p>
+<h1 id="group-project">Group project</h1>
+<p><br>Keisha Byrne</br>
+<br>2401317</br></p>
+<p><br>Callum Wade</p>
+<p><br>2404781</p>
+<p><br>Fundamentals Of Games Development</br></p>
+<h1 id="research">Research</h1>
+<h2 id="what-research-did-you-do">What research did you do?</h2>
+<p><br> Our research process involved gathering various elements to shape our game's design and style. We started by sourcing images for our characters to establish their look and feel, ensuring they aligned with the aesthetic we envisioned. For the game's style, we decided on 2D pixel art, reflecting a classic, retro-inspired approach. We explored and selected sound effects to match the game's theme, including atmospheric background music to enhance the player's immersion. Additionally, we researched potential enemy types to create diverse and engaging challenges, as well as a variety of weapon types to provide players with exciting gameplay options.</br></p>
+<h2 id="how-did-it-help">How did it help?</h2>
+<p><br>Our research proved valuable in shaping our project. It gave us a clear and solid vision of what we wanted to create, providing a secure foundation for the entire development process. With a well-defined idea in place, we were able to identify exactly what needed to be done and estimate the time required for each task. This clarity allowed us to approach the project with confidence and efficiency, ensuring that all elements aligned with our overall goals and vision.</br></p>
+<h2 id="what-websites-did-i-use">What websites did I use?</h2>
+<p>The main website I used was the unity documentation, specifically the documentation on instantiating objects and on using ienumerators and coroutines(Technologies, s.d.).</p>
+<p>The first website, on instantiating objects, helped me to create the bullets that the player shoots. The website taught me how to layout an instantiate script so that I can control the location of where the bullet spawns and the objects rotation. Also it showed me how to organise the objects so that all the bullets spawn inside of a parent to keep the hierarchy tidy instead of having it full of bullet clones.</p>
+<p>I found this website to be very informative on instantiating objects as it tells you everything there is to instantiating from the basics to setting the clones a parent object and setting the clones velocity when it spawns.</p>
+<p>The second website, on using ienumerators and coroutines, helped me to add reloading to the game as I needed to make a script that reloaded the player's bullets after a few seconds whenever they press R or when they run out of ammo. The website showed me how to use a coroutine to wait a specific amount of time by using yield return new WaitForSeconds(waitTime);. The website also shows how coroutines can be stopped using code, which I didn't need but I still found it interesting and good to know for future projects.</p>
+<p>I found this website to be very full on, this is because it goes very in depth on the ins and outs of coroutines even though I only needed the basics. However this isn't a bad thing since I can come back to read the rest of the website in the future when I need to use coroutines again.</p>
+<h1 id="how-did-i-make-it">How Did I Make It?</h1>
+<p><br>We approached the development of the game by dividing tasks effectively between us. Callum primarily handled the coding, guiding me along the way by using comments in the code to explain functions and processes. Meanwhile, I focused on the level design, creating the sprites, and sourcing images(@UnityAssetStore, 2022) that inspired and brought our ideas to life. I also selected the background music and some sound effects (Uppbeat.io, 2024), which we both reviewed and agreed suited the game. This collaboration allowed us to combine our skills and creativity, ensuring a smooth development process and a cohesive final product.</br></p>
+<h2 id="implementation">Implementation</h2>
+<ul>
+<li>First I started by making the movement script for the player.
+<br></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+{
+    <span class="hljs-comment">//allows the player to move horizontally</span>
+    <span class="hljs-keyword">float</span> horizontalInput = Input.GetAxis(<span class="hljs-string">"Horizontal"</span>);
+    rb.velocity = <span class="hljs-keyword">new</span> Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+
+    <span class="hljs-comment">//changes the way the fox is facing based on the way the player is moving</span>
+    <span class="hljs-keyword">if</span> (Input.GetKeyDown(KeyCode.A))
+    {
+        transform.localScale = <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">-1f</span>, <span class="hljs-number">1f</span>, <span class="hljs-number">1f</span>);
+        <span class="hljs-comment">// spriteRenderer.flipX = true;</span>
+    }
+    <span class="hljs-keyword">if</span> (Input.GetKeyDown(KeyCode.D))
+    {
+        transform.localScale = <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">1f</span>, <span class="hljs-number">1f</span>, <span class="hljs-number">1f</span>);
+        <span class="hljs-comment"><span class="hljs-doctag">///</span>/ spriteRenderer.flipX = false;</span>
+    }
+
+    <span class="hljs-comment">//the player can jump when space is pressed and they are touching the ground</span>
+    <span class="hljs-keyword">if</span> (Input.GetButtonDown(<span class="hljs-string">"Jump"</span>) &amp;&amp; grounded == <span class="hljs-literal">true</span>)
+    {
+        rb.AddForce(<span class="hljs-keyword">new</span> Vector2(rb.velocity.x, jump));
+        wasInAir = <span class="hljs-literal">true</span>;
+        audioSources[jumpAudioIndex].Play();
+    }
+}
+</div></code></pre>
+<p><em>Figure 1. Shows the script that was used to control the player's movement and jumping as well as rotate the player asset based on the direction they are moving.</em></p>
+<br>
+<ul>
+<li>Then I added a gliding mechanic so that when the player holds jump, they can fall slower in the air
+<br></li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+{
+    <span class="hljs-comment">//allows the player to move horizontally</span>
+    <span class="hljs-keyword">float</span> horizontalInput = Input.GetAxis(<span class="hljs-string">"Horizontal"</span>);
+    rb.velocity = <span class="hljs-keyword">new</span> Vector2(horizontalInput * moveSpeed, rb.velocity.y);
+
+    <span class="hljs-comment">//changes the way the fox is facing based on the way the player is moving</span>
+    <span class="hljs-keyword">if</span> (Input.GetKeyDown(KeyCode.A))
+    {
+        transform.localScale = <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">-1f</span>, <span class="hljs-number">1f</span>, <span class="hljs-number">1f</span>);
+        <span class="hljs-comment">// spriteRenderer.flipX = true;</span>
+    }
+    <span class="hljs-keyword">if</span> (Input.GetKeyDown(KeyCode.D))
+    {
+        transform.localScale = <span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">1f</span>, <span class="hljs-number">1f</span>, <span class="hljs-number">1f</span>);
+        <span class="hljs-comment"><span class="hljs-doctag">///</span>/ spriteRenderer.flipX = false;</span>
+    }
+
+    <span class="hljs-comment">//the player can jump when space is pressed and they are touching the ground</span>
+    <span class="hljs-keyword">if</span> (Input.GetButtonDown(<span class="hljs-string">"Jump"</span>) &amp;&amp; grounded == <span class="hljs-literal">true</span>)
+    {
+        rb.AddForce(<span class="hljs-keyword">new</span> Vector2(rb.velocity.x, jump));
+        wasInAir = <span class="hljs-literal">true</span>;
+        audioSources[jumpAudioIndex].Play();
+    }
+    <span class="hljs-comment">//when the player presses jump and is in the air, gravity is changed to make the player glide</span>
+    <span class="hljs-comment">//GLIDING SYSTEM COULD DEFINATELY USE SOME IMPROVEMENTS</span>
+    <span class="hljs-keyword">if</span> (Input.GetButtonDown(<span class="hljs-string">"Jump"</span>) &amp;&amp; grounded == <span class="hljs-literal">false</span>)
+    {
+        rb.gravityScale = gravity;
+    }
+    <span class="hljs-comment">//when the player touches the ground, gravity is reset back to 2</span>
+    <span class="hljs-keyword">if</span> (grounded == <span class="hljs-literal">true</span>)
+    {
+        rb.gravityScale = <span class="hljs-number">1</span>;
+    }
+    <span class="hljs-keyword">if</span> (wasInAir == <span class="hljs-literal">true</span> &amp;&amp; grounded == <span class="hljs-literal">true</span>)
+    {
+        wasInAir = <span class="hljs-literal">false</span>;
+        audioSources[landAudioIndex].Play();
+    }
+}
+</div></code></pre>
+<p><em>Figure 2. Shows the movement script with the gliding added to it</em></p>
+<br>
+<ul>
+<li>Afterwards, I created a fox ai script for the basic fox enemy. This script makes the fox patrol left and right until the player comes close to it which causes it to chase the player.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> UnityEngine;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">EnemyAI</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> basicFoxHealth = <span class="hljs-number">30</span>;
+    Shooting shootingScript;
+
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> moveSpeed = <span class="hljs-number">2f</span>;           <span class="hljs-comment">// Enemy's movement speed</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> patrolRange = <span class="hljs-number">5f</span>;         <span class="hljs-comment">// Distance for patrolling</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> chaseSpeed = <span class="hljs-number">4f</span>;          <span class="hljs-comment">// Speed when chasing the player</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> detectionRange = <span class="hljs-number">3f</span>;      <span class="hljs-comment">// Range within which enemy detects the player</span>
+
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">bool</span> movingRight = <span class="hljs-literal">true</span>;       <span class="hljs-comment">// Direction of patrolling</span>
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> patrolStartX;            <span class="hljs-comment">// Starting X position for patrolling</span>
+    <span class="hljs-keyword">private</span> Rigidbody2D rb;                <span class="hljs-comment">// Enemy's Rigidbody2D component</span>
+    <span class="hljs-keyword">private</span> Transform player;              <span class="hljs-comment">// Reference to the player's Transform</span>
+
+    <span class="hljs-keyword">private</span> AudioSource audioSource;
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
+    {
+        rb = GetComponent&lt;Rigidbody2D&gt;();
+        patrolStartX = transform.position.x;  <span class="hljs-comment">// Set patrol starting point</span>
+        player = GameObject.FindGameObjectWithTag(<span class="hljs-string">"Player"</span>).transform;  <span class="hljs-comment">// Find the player using tag</span>
+        shootingScript = GameObject.FindObjectOfType&lt;Shooting&gt;();
+        audioSource = GetComponent&lt;AudioSource&gt;();
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-comment">// Calculate distance between the enemy and the player</span>
+        <span class="hljs-keyword">float</span> distanceToPlayer = Vector2.Distance(transform.position, player.position);
+
+        <span class="hljs-comment">// If the player is within the detection range, chase the player</span>
+        <span class="hljs-keyword">if</span> (distanceToPlayer &lt;= detectionRange)
+        {
+            ChasePlayer();
+        }
+        <span class="hljs-keyword">else</span>
+        {
+            Patrol();
+        }
+
+        <span class="hljs-keyword">if</span> (basicFoxHealth &lt;= <span class="hljs-number">0</span>) 
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    <span class="hljs-comment">// Patrolling movement</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Patrol</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-comment">// Check if the enemy is moving beyond patrol range and reverse direction</span>
+        <span class="hljs-keyword">if</span> (movingRight &amp;&amp; transform.position.x &gt;= patrolStartX + patrolRange)
+        {
+            Flip();
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (!movingRight &amp;&amp; transform.position.x &lt;= patrolStartX - patrolRange)
+        {
+            Flip();
+        }
+
+        <span class="hljs-comment">// Move the enemy</span>
+        rb.velocity = <span class="hljs-keyword">new</span> Vector2((movingRight ? moveSpeed : -moveSpeed), rb.velocity.y);
+    }
+
+    <span class="hljs-comment">// Chase the player when they are within detection range</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ChasePlayer</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-comment">// Move towards the player</span>
+        <span class="hljs-keyword">float</span> direction = player.position.x &gt; transform.position.x ? <span class="hljs-number">1</span> : <span class="hljs-number">-1</span>;
+        rb.velocity = <span class="hljs-keyword">new</span> Vector2(direction * chaseSpeed, rb.velocity.y);
+
+        <span class="hljs-comment">// Flip enemy direction to face the player</span>
+        <span class="hljs-keyword">if</span> ((direction &gt; <span class="hljs-number">0</span> &amp;&amp; !movingRight) || (direction &lt; <span class="hljs-number">0</span> &amp;&amp; movingRight))
+        {
+            Flip();
+        }
+    }
+
+    <span class="hljs-comment">// Flip the enemy's direction (left or right)</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Flip</span>(<span class="hljs-params"></span>)</span>
+    {
+        movingRight = !movingRight;
+        Vector3 localScale = transform.localScale;
+        localScale.x *= <span class="hljs-number">-1</span>;
+        transform.localScale = localScale;
+    }
+
+    <span class="hljs-comment">// Optional: Visualize patrol and detection range in Unity editor</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnDrawGizmosSelected</span>(<span class="hljs-params"></span>)</span>
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawLine(<span class="hljs-keyword">new</span> Vector2(patrolStartX - patrolRange, transform.position.y), <span class="hljs-keyword">new</span> Vector2(patrolStartX + patrolRange, transform.position.y));
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRange);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnCollisionEnter2D</span>(<span class="hljs-params">Collision2D other</span>)</span>
+    {
+        <span class="hljs-keyword">if</span> (other.gameObject.CompareTag(<span class="hljs-string">"Bullet"</span>))
+        {
+            basicFoxHealth = basicFoxHealth - shootingScript.bulletDamage;
+            audioSource.Play();
+        }
+
+
+    }
+}
+</div></code></pre>
+<p><em>Figure 3. This script controls the basic fox, causing it to patrol an area and chase the player. Also this script allows the fox to take damage when they are shot, which was implemented after</em></p>
+<br>
+<ul>
+<li>After making the fox, I worked on the shooting. I first made the pistol.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> UnityEngine;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Shooting</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    <span class="hljs-keyword">public</span> GameObject pistolBulletPrefab;
+    <span class="hljs-keyword">public</span> Transform firePoint;
+    [<span class="hljs-meta">SerializeField</span>] <span class="hljs-keyword">private</span> LevelSelect levelSelectScript;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> bulletSpeed;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> fireRate;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> nextFireTime;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> currentGun;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> pistolAmmoCount = <span class="hljs-number">6f</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> bulletLifetime;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> reloadTime;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> bulletDamage;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> maxAmmo = <span class="hljs-number">6</span>;  <span class="hljs-comment">// Max ammo for pistol (you can adjust for other guns)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">bool</span> isReloading = <span class="hljs-literal">false</span>;
+
+    [<span class="hljs-meta">SerializeField</span>] <span class="hljs-keyword">private</span> Transform PistolFirePoint;
+    <span class="hljs-keyword">private</span> Transform SpawnPoint;
+
+    <span class="hljs-keyword">private</span> AudioSource[] audioSources;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> biteAudioIndex = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> gunShotAudioIndex = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> jumpAudioIndex = <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> landAudioIndex = <span class="hljs-number">3</span>;
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
+    {
+        levelSelectScript = GameObject.Find(<span class="hljs-string">"1"</span>).GetComponent&lt;LevelSelect&gt;();
+        audioSources = GetComponents&lt;AudioSource&gt;();
+        currentGun = <span class="hljs-string">"Pistol"</span>;
+        <span class="hljs-keyword">if</span> (LevelSelect.levelUnlocked &gt;= <span class="hljs-number">3</span>)
+        {
+            shotgunUnlocked = <span class="hljs-literal">true</span>;
+        }        
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-comment">// Check if the player can shoot (enough ammo, fire rate limit, and not reloading)</span>
+        <span class="hljs-keyword">if</span> (Input.GetButtonDown(<span class="hljs-string">"Fire1"</span>) &amp;&amp; Time.time &gt;= nextFireTime &amp;&amp; !isReloading)
+        {
+            <span class="hljs-keyword">if</span> (currentGun == <span class="hljs-string">"Pistol"</span> &amp;&amp; pistolAmmoCount &gt; <span class="hljs-number">0</span>)
+            {
+                Shoot();
+                pistolAmmoCount--;  <span class="hljs-comment">// Deduct ammo for pistol</span>
+                <span class="hljs-keyword">if</span> (!audioSources[gunShotAudioIndex].isPlaying)
+                {
+                    audioSources[gunShotAudioIndex].Play();       
+                }
+            }
+            nextFireTime = Time.time + fireRate;
+        }
+
+        <span class="hljs-comment">// Switch between guns</span>
+        <span class="hljs-keyword">if</span> (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            currentGun = <span class="hljs-string">"Pistol"</span>;
+        }
+
+        <span class="hljs-comment">// Set weapon stats based on the current gun</span>
+        <span class="hljs-keyword">if</span> (currentGun == <span class="hljs-string">"Pistol"</span>)
+        {
+            bulletSpeed = <span class="hljs-number">20f</span>;
+            fireRate = <span class="hljs-number">0.5f</span>;
+            nextFireTime = <span class="hljs-number">0f</span>;
+            maxAmmo = <span class="hljs-number">6</span>;
+            reloadTime = <span class="hljs-number">2f</span>;
+            bulletLifetime = <span class="hljs-number">2f</span>;
+            bulletDamage = <span class="hljs-number">10</span>;
+        }
+
+        <span class="hljs-comment">// Reload script (start reloading if ammo is 0 or player presses 'r')</span>
+        <span class="hljs-keyword">if</span> (Input.GetKeyDown(KeyCode.R) &amp;&amp; !isReloading &amp;&amp; (pistolAmmoCount == <span class="hljs-number">0</span>))
+        {
+            StartCoroutine(Reload());
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Shoot</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-comment">// Calculate the direction from the player to the mouse position</span>
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mousePosition - firePoint.position).normalized;
+
+        <span class="hljs-keyword">if</span> (currentGun == <span class="hljs-string">"Pistol"</span>)
+        {
+            <span class="hljs-comment">// Instantiate the pistol bullet at the fire point position</span>
+            GameObject bullet = Instantiate(pistolBulletPrefab, PistolFirePoint.position, firePoint.rotation);
+
+            <span class="hljs-comment">// Get the Rigidbody2D component from the bullet and apply force in the direction of the mouse</span>
+            Rigidbody2D rb = bullet.GetComponent&lt;Rigidbody2D&gt;();
+            rb.velocity = direction * bulletSpeed;
+
+            <span class="hljs-comment">// Rotate the fire point to face the mouse direction</span>
+            <span class="hljs-keyword">float</span> angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            firePoint.rotation = Quaternion.Euler(<span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, angle));
+
+            <span class="hljs-comment">// Destroy the bullet after a certain amount of time</span>
+            Destroy(bullet, bulletLifetime);
+        }
+    }
+
+
+
+    <span class="hljs-function">IEnumerator <span class="hljs-title">Reload</span>(<span class="hljs-params"></span>)</span>
+    {
+        isReloading = <span class="hljs-literal">true</span>; <span class="hljs-comment">// Set reloading to true to prevent shooting while reloading</span>
+        Debug.Log(<span class="hljs-string">"Reloading..."</span>);
+
+        <span class="hljs-comment">// Wait for the reload time</span>
+        <span class="hljs-function"><span class="hljs-keyword">yield</span> return new <span class="hljs-title">WaitForSeconds</span>(<span class="hljs-params">reloadTime</span>)</span>;
+
+        <span class="hljs-comment">// Refill ammo based on the current gun</span>
+        <span class="hljs-keyword">if</span> (currentGun == <span class="hljs-string">"Pistol"</span>)
+        {
+            pistolAmmoCount = maxAmmo;
+        }
+        isReloading = <span class="hljs-literal">false</span>;
+        Debug.Log(<span class="hljs-string">"Reload complete. Ammo refilled."</span>);
+    }
+}
+</div></code></pre>
+<p><em>Figure 4. This is the shooting script with the pistol added. When the player presses 1, they equip the pistol which changes the guns stats to the pistol stats. When R is pressed or the pistol runs out of ammo, the pistol reloads. When left click is pressed, a bullet is instantiated at the firing point.</em></p>
+<br>
+<ul>
+<li>Then I added a bullet script to go on the bullet prefab</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Bullet</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    <span class="hljs-comment">// Start is called before the first frame update</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-comment">//stops the bullet and player from interacting</span>
+        GameObject player = GameObject.FindGameObjectWithTag(<span class="hljs-string">"Player"</span>);
+        Physics2D.IgnoreCollision(player.GetComponent&lt;Collider2D&gt;(), GetComponent&lt;Collider2D&gt;());
+    }
+}
+</div></code></pre>
+<p><em>Figure 5. This script stops the bullets from interacting with the physics of the player.</em></p>
+<br>
+<ul>
+<li>After, I added the shotgun to the shooting script</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> UnityEngine;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Shooting</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    <span class="hljs-keyword">public</span> GameObject pistolBulletPrefab;
+    <span class="hljs-keyword">public</span> GameObject shotgunBulletPrefab;
+    <span class="hljs-keyword">public</span> Transform firePoint;
+    [<span class="hljs-meta">SerializeField</span>] <span class="hljs-keyword">private</span> LevelSelect levelSelectScript;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> bulletSpeed;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> fireRate;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">float</span> nextFireTime;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">string</span> currentGun;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">bool</span> shotgunUnlocked = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> pistolAmmoCount = <span class="hljs-number">6f</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> shotgunAmmoCount = <span class="hljs-number">4f</span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> bulletLifetime;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> reloadTime;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> bulletDamage;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">float</span> maxAmmo = <span class="hljs-number">6</span>;  <span class="hljs-comment">// Max ammo for pistol (you can adjust for other guns)</span>
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">bool</span> isReloading = <span class="hljs-literal">false</span>;
+
+    [<span class="hljs-meta">SerializeField</span>] <span class="hljs-keyword">private</span> Transform ShotGunFirePoint;
+    [<span class="hljs-meta">SerializeField</span>] <span class="hljs-keyword">private</span> Transform PistolFirePoint;
+    <span class="hljs-keyword">private</span> Transform SpawnPoint;
+
+    <span class="hljs-keyword">private</span> AudioSource[] audioSources;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> biteAudioIndex = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> gunShotAudioIndex = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> jumpAudioIndex = <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> landAudioIndex = <span class="hljs-number">3</span>;
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
+    {
+        levelSelectScript = GameObject.Find(<span class="hljs-string">"1"</span>).GetComponent&lt;LevelSelect&gt;();
+        audioSources = GetComponents&lt;AudioSource&gt;();
+        currentGun = <span class="hljs-string">"Pistol"</span>;
+        <span class="hljs-keyword">if</span> (LevelSelect.levelUnlocked &gt;= <span class="hljs-number">3</span>)
+        {
+            shotgunUnlocked = <span class="hljs-literal">true</span>;
+        }        
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-comment">// Check if the player can shoot (enough ammo, fire rate limit, and not reloading)</span>
+        <span class="hljs-keyword">if</span> (Input.GetButtonDown(<span class="hljs-string">"Fire1"</span>) &amp;&amp; Time.time &gt;= nextFireTime &amp;&amp; !isReloading)
+        {
+            <span class="hljs-keyword">if</span> (currentGun == <span class="hljs-string">"Pistol"</span> &amp;&amp; pistolAmmoCount &gt; <span class="hljs-number">0</span>)
+            {
+                Shoot();
+                pistolAmmoCount--;  <span class="hljs-comment">// Deduct ammo for pistol</span>
+                <span class="hljs-keyword">if</span> (!audioSources[gunShotAudioIndex].isPlaying)
+                {
+                    audioSources[gunShotAudioIndex].Play();       
+                }
+            }
+            <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (currentGun == <span class="hljs-string">"Shotgun"</span> &amp;&amp; shotgunAmmoCount &gt; <span class="hljs-number">0</span>)
+            {
+                Shoot();
+                shotgunAmmoCount--;  <span class="hljs-comment">// Deduct ammo for shotgun</span>
+            }
+
+            nextFireTime = Time.time + fireRate;
+        }
+
+        <span class="hljs-comment">// Switch between guns</span>
+        <span class="hljs-keyword">if</span> (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            currentGun = <span class="hljs-string">"Pistol"</span>;
+        }
+
+        <span class="hljs-keyword">if</span> (Input.GetKeyDown(KeyCode.Alpha2) &amp;&amp; shotgunUnlocked)
+        {
+            currentGun = <span class="hljs-string">"Shotgun"</span>;
+        }
+
+        <span class="hljs-comment">// Set weapon stats based on the current gun</span>
+        <span class="hljs-keyword">if</span> (currentGun == <span class="hljs-string">"Pistol"</span>)
+        {
+            bulletSpeed = <span class="hljs-number">20f</span>;
+            fireRate = <span class="hljs-number">0.5f</span>;
+            nextFireTime = <span class="hljs-number">0f</span>;
+            maxAmmo = <span class="hljs-number">6</span>;
+            reloadTime = <span class="hljs-number">2f</span>;
+            bulletLifetime = <span class="hljs-number">2f</span>;
+            bulletDamage = <span class="hljs-number">10</span>;
+        }
+        <span class="hljs-keyword">if</span> (currentGun == <span class="hljs-string">"Shotgun"</span>)
+        {
+            bulletSpeed = <span class="hljs-number">20f</span>;
+            fireRate = <span class="hljs-number">1f</span>;
+            nextFireTime = <span class="hljs-number">0.5f</span>;
+            maxAmmo = <span class="hljs-number">4</span>;
+            reloadTime = <span class="hljs-number">3f</span>;
+            bulletLifetime = <span class="hljs-number">1f</span>;
+            bulletDamage = <span class="hljs-number">20</span>;
+        }
+
+        <span class="hljs-comment">// Reload script (start reloading if ammo is 0 or player presses 'r')</span>
+        <span class="hljs-keyword">if</span> (Input.GetKeyDown(KeyCode.R) &amp;&amp; !isReloading &amp;&amp; (pistolAmmoCount == <span class="hljs-number">0</span> || shotgunAmmoCount == <span class="hljs-number">0</span>))
+        {
+            StartCoroutine(Reload());
+        }
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Shoot</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-comment">// Calculate the direction from the player to the mouse position</span>
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 direction = (mousePosition - firePoint.position).normalized;
+
+        <span class="hljs-keyword">if</span> (currentGun == <span class="hljs-string">"Pistol"</span>)
+        {
+            <span class="hljs-comment">// Instantiate the pistol bullet at the fire point position</span>
+            GameObject bullet = Instantiate(pistolBulletPrefab, PistolFirePoint.position, firePoint.rotation);
+
+            <span class="hljs-comment">// Get the Rigidbody2D component from the bullet and apply force in the direction of the mouse</span>
+            Rigidbody2D rb = bullet.GetComponent&lt;Rigidbody2D&gt;();
+            rb.velocity = direction * bulletSpeed;
+
+            <span class="hljs-comment">// Rotate the fire point to face the mouse direction</span>
+            <span class="hljs-keyword">float</span> angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            firePoint.rotation = Quaternion.Euler(<span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, angle));
+
+            <span class="hljs-comment">// Destroy the bullet after a certain amount of time</span>
+            Destroy(bullet, bulletLifetime);
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (currentGun == <span class="hljs-string">"Shotgun"</span>)
+        {   
+            <span class="hljs-comment">// Move the spawn position in front of the player</span>
+            <span class="hljs-comment">// firePoint.up will give us the direction the player is facing</span>
+            <span class="hljs-comment">//Vector3 spawnPosition = firePoint.position + firePoint.up * 0.5f;  // Adjust 0.5f to control how far in front of the player the bullet spawns</span>
+
+            <span class="hljs-comment">// Ensure the spawn position is in front of the player, accounting for player facing direction</span>
+            GameObject bullet = Instantiate(shotgunBulletPrefab, ShotGunFirePoint.position, firePoint.rotation);
+
+            <span class="hljs-comment">// Get the Rigidbody2D component from the bullet and apply force in the direction of the mouse</span>
+            Rigidbody2D rb = bullet.GetComponent&lt;Rigidbody2D&gt;();
+            rb.velocity = direction * bulletSpeed;
+
+            <span class="hljs-comment">// Rotate the fire point to face the mouse direction</span>
+            <span class="hljs-keyword">float</span> angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            firePoint.rotation = Quaternion.Euler(<span class="hljs-keyword">new</span> Vector3(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, angle));
+
+            <span class="hljs-comment">// Destroy the bullet after a certain amount of time</span>
+            Destroy(bullet, bulletLifetime);
+        }
+    }
+
+
+
+    <span class="hljs-function">IEnumerator <span class="hljs-title">Reload</span>(<span class="hljs-params"></span>)</span>
+    {
+        isReloading = <span class="hljs-literal">true</span>; <span class="hljs-comment">// Set reloading to true to prevent shooting while reloading</span>
+        Debug.Log(<span class="hljs-string">"Reloading..."</span>);
+
+        <span class="hljs-comment">// Wait for the reload time</span>
+        <span class="hljs-function"><span class="hljs-keyword">yield</span> return new <span class="hljs-title">WaitForSeconds</span>(<span class="hljs-params">reloadTime</span>)</span>;
+
+        <span class="hljs-comment">// Refill ammo based on the current gun</span>
+        <span class="hljs-keyword">if</span> (currentGun == <span class="hljs-string">"Pistol"</span>)
+        {
+            pistolAmmoCount = maxAmmo;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (currentGun == <span class="hljs-string">"Shotgun"</span>)
+        {
+            shotgunAmmoCount = maxAmmo;
+        }
+
+        isReloading = <span class="hljs-literal">false</span>;
+        Debug.Log(<span class="hljs-string">"Reload complete. Ammo refilled."</span>);
+    }
+}
+
+</div></code></pre>
+<p><em>Figure 6. Shows the Shooting script with the shotgun implemented. When 2 is pressed, the player switches to the shotgun</em></p>
+<br>
+<ul>
+<li>I then created a player script to manage the player's health.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> UnityEngine;
+<span class="hljs-keyword">using</span> UnityEngine.SceneManagement;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Player</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">float</span> playerHealth = <span class="hljs-number">100</span>;
+
+    <span class="hljs-comment">// Update is called once per frame</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-comment">//Stops the health from going below 0</span>
+        <span class="hljs-keyword">if</span> (playerHealth &lt;= <span class="hljs-number">0</span>)
+        {
+            playerHealth = <span class="hljs-number">0</span>;
+        }
+        <span class="hljs-keyword">if</span> (playerHealth &lt;= <span class="hljs-number">1</span>)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">OnCollisionEnter2D</span>(<span class="hljs-params">Collision2D other</span>)</span>
+    {
+        <span class="hljs-keyword">if</span> (other.gameObject.CompareTag(<span class="hljs-string">"Enemy"</span>))
+        {
+            playerHealth = playerHealth - <span class="hljs-number">30f</span>;
+        }
+    }
+}
+
+</div></code></pre>
+<p><em>Figure 7. A script to manage the player's health so that when the player collides with an enemy, they take damage. Also when the player dies, the level resets.</em></p>
+<br>
+<ul>
+<li>After, I worked on multiple UI scripts to display information for the player on the UI.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> UnityEngine;
+<span class="hljs-keyword">using</span> TMPro;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">PlayerHealth</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    TMP_Text playerHealthText;
+
+    <span class="hljs-comment">// Start is called before the first frame update</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
+    {
+        playerHealthText = GetComponent&lt;TMP_Text&gt;();
+    }
+
+    <span class="hljs-comment">// Update is called once per frame</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+    {
+        playerHealthText.text = (<span class="hljs-string">"Health: "</span>) + Player.playerHealth;
+    }
+}
+</div></code></pre>
+<p><em>Figure 8. The script that displays the player's current health on the UI</em></p>
+<br>
+<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> UnityEngine;
+<span class="hljs-keyword">using</span> TMPro;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">Gunstoselect</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    TMP_Text gunsToSelectText;
+    Shooting shootingScript;
+    <span class="hljs-keyword">string</span> pistolText = <span class="hljs-string">"1 - Pistol"</span>;
+    <span class="hljs-keyword">string</span> shotgunText = <span class="hljs-string">"2 - Shotgun"</span>;
+    
+    <span class="hljs-comment">// Start is called before the first frame update</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
+    {
+        gunsToSelectText = GetComponent&lt;TMP_Text&gt;();
+        shootingScript = GameObject.FindObjectOfType&lt;Shooting&gt;();
+        
+    }
+
+    <span class="hljs-comment">// Update is called once per frame</span>
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-keyword">if</span> (shootingScript.shotgunUnlocked == <span class="hljs-literal">false</span>)
+        {
+            gunsToSelectText.text = pistolText;
+        }
+        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (shootingScript.shotgunUnlocked == <span class="hljs-literal">true</span>)
+        {
+            gunsToSelectText.text = pistolText + <span class="hljs-string">"\n"</span> + shotgunText;
+        }
+    }
+}
+</div></code></pre>
+<p><em>Figure 9. Displays the GunsToSelect script which displays the guns that are useable.</em></p>
+<br>
+<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> UnityEngine;
+<span class="hljs-keyword">using</span> TMPro;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">AmmoCount</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    TMP_Text ammoCountText;
+    Shooting shootingScript;
+
+    <span class="hljs-comment">// Start is called before the first frame update</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
+    {
+        ammoCountText = GetComponent&lt;TMP_Text&gt;();
+        shootingScript = GameObject.FindObjectOfType&lt;Shooting&gt;();
+    }
+
+    <span class="hljs-comment">// Update is called once per frame</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-keyword">if</span> (shootingScript.isReloading == <span class="hljs-literal">false</span>)
+        {
+            <span class="hljs-keyword">if</span> (shootingScript.currentGun == <span class="hljs-string">"Pistol"</span>)
+            {
+                ammoCountText.text = (shootingScript.pistolAmmoCount.ToString() + <span class="hljs-string">"/"</span> + shootingScript.maxAmmo.ToString());
+            }
+            <span class="hljs-keyword">if</span> (shootingScript.currentGun == <span class="hljs-string">"Shotgun"</span>)
+            {
+                ammoCountText.text = (shootingScript.shotgunAmmoCount.ToString() + <span class="hljs-string">"/"</span> + shootingScript.maxAmmo.ToString());
+            }
+        }
+        <span class="hljs-keyword">if</span> (shootingScript.isReloading == <span class="hljs-literal">true</span>)
+        {
+            ammoCountText.text = (<span class="hljs-string">"Reloading..."</span>);
+        }       
+    }
+}
+
+</div></code></pre>
+<p><em>Figure 10. The ammo count script displays the players current ammo count. When the player is reloading it shows &quot;Reloading...&quot;</em></p>
+<br>
+<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> TMPro;
+<span class="hljs-keyword">using</span> UnityEngine;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">CurrentGun</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    TMP_Text currentGunText;
+    Shooting shootingScript;
+
+    <span class="hljs-comment">// Start is called before the first frame update</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
+    {
+        currentGunText = GetComponent&lt;TMP_Text&gt;();
+        shootingScript = GameObject.FindObjectOfType&lt;Shooting&gt;();
+    }
+
+    <span class="hljs-comment">// Update is called once per frame</span>
+    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Update</span>(<span class="hljs-params"></span>)</span>
+    {
+        currentGunText.text = (<span class="hljs-string">"Gun: "</span> + shootingScript.currentGun);
+    }
+}
+</div></code></pre>
+<p><em>Figure 11. The current gun script displays the current gun that the player is using.</em></p>
+<br>
+<ul>
+<li>After completing the UI, I added an end level script</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">using</span> System.Collections;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> UnityEngine;
+<span class="hljs-keyword">using</span> UnityEngine.SceneManagement;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">EndLevel</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    [<span class="hljs-meta">SerializeField</span>] <span class="hljs-keyword">private</span> LevelSelect levelSelectScript;
+    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
+    {
+        levelSelectScript = GameObject.Find(<span class="hljs-string">"1"</span>).GetComponent&lt;LevelSelect&gt;();
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">OnTriggerEnter2D</span>(<span class="hljs-params">Collider2D other</span>)</span>
+    {
+        Debug.Log(<span class="hljs-string">"hi"</span>);
+        <span class="hljs-keyword">if</span> (other.gameObject.CompareTag(<span class="hljs-string">"Player"</span>))
+        {
+            LoadLevelSelect();
+        }
+    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LoadLevelSelect</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-comment">//levelSelectScript.levelUnlocked++;</span>
+        LevelSelect.levelUnlocked++;
+        SceneManager.LoadScene(<span class="hljs-string">"Level Select"</span>);
+    }
+}
+
+</div></code></pre>
+<p><em>Figure 12. EndLevel script makes it so that when the player collides with the end coop, the level select scene is loaded and unlocks the next level using an int variable call levelUnlocked.</em></p>
+<br>
+<ul>
+<li>After finishing this script, I added the level select scene and programmed it.</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-keyword">using</span> JetBrains.Annotations;
+<span class="hljs-keyword">using</span> System.Collections;
+<span class="hljs-keyword">using</span> System.Collections.Generic;
+<span class="hljs-keyword">using</span> UnityEngine;
+<span class="hljs-keyword">using</span> UnityEngine.SceneManagement;
+
+<span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title">LevelSelect</span> : <span class="hljs-title">MonoBehaviour</span>
+{
+    [<span class="hljs-meta">HideInInspector</span>] <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> levelUnlocked = <span class="hljs-number">1</span>;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> levelClickedInt;
+
+    <span class="hljs-comment">// Start is called before the first frame update</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">Start</span>(<span class="hljs-params"></span>)</span>
+    {
+        <span class="hljs-comment">//gets the name of the object the script is on</span>
+        <span class="hljs-keyword">string</span> levelClicked = gameObject.name;
+        <span class="hljs-comment">//changes the levelClicked variable to an int variable</span>
+        levelClickedInt = <span class="hljs-keyword">int</span>.Parse(levelClicked);
+    }
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">LevelClicked</span>(<span class="hljs-params"></span>)</span>
+    {
+       <span class="hljs-keyword">if</span> (levelClickedInt &lt;= levelUnlocked)
+        {
+            <span class="hljs-comment">//loads the level based on levelClickedInt</span>
+            SceneManager.LoadScene(levelClickedInt);
+        }
+    }
+}
+</div></code></pre>
+<p>*Figure 13. The LevelSelect script tracks the levels completed and unlocked with the levelUnlocked. When a level is completed, the levelUnlocked variable is increased by 1. This script goes on each level button and the script gets the buttons name, which is the same as the number of the level, then it changes it into an int variable which is compared to the levelUnlocked variable to determine if the button will take the player to the level. *</p>
+<h1 id="outcome-the-final-product">Outcome (The Final Product)</h1>
+<ul>
+<li><a href="https://youtu.be/KOPqNBwS5-k">Video Demonstration Part 1</a></li>
+<li><a href="https://youtu.be/LpnZCovlkdE">Video Demonstration Part 2</a></li>
+<li><a href="https://c6wx.itch.io/eggs-of-vengeance">Game Build</a></li>
+<li><a href="https://github.com/C6WX/Eggcode-Studios">Github</a></li>
+</ul>
+<h1 id="game-images">Game Images</h1>
+<img width="200" height="200" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/chicken.jpg">
+<br>
+<img width="200" height="200" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/egg.png">  
+<br>
+<img width="200" height="200" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/fox.png">  
+<br>
+<img width="200" height="200" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/pistol.png"> 
+<br>
+<img width="200" height="200" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/shotgun.png"> 
+<br>
+<img width="400" height="250" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/Level1Start%20.png"> 
+<br>
+<br>
+<img width="400" height="250" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/Level3Fox.png"> 
+<br>
+<br>
+<img width="400" height="250" src="https://raw.githubusercontent.com/C6WX/Eggcode-Studios/refs/heads/main/Level4Foxes.png"> 
+<br>
+<h1 id="reflection">Reflection</h1>
+<h2 id="how-did-it-go">How did it go?</h2>
+<p><br>Overall, I think the project went quite well. We were able to work together effectively, maintaining strong communication throughout the process. This allowed us to share ideas openly and brainstorm creative solutions, ensuring that each aspect of the game aligned with our shared vision. Our collaboration was productive, and the division of tasks played to our strengths, making the development process both efficient and enjoyable.</br></p>
+<h2 id="what-would-you-do-differently">What would you do differently?</h2>
+<p><br>Upon reflection, there are a few things I would do differently. Firstly, I would aim to stay more consistent with the project timeline, as I fell behind in the first few weeks due to personal issues. Addressing this earlier would have helped maintain steady progress. Secondly, I would focus on improving my coding skills so that I could contribute more effectively to the technical aspects of the project, in addition to my work on the art and design. These changes would not only enhance my contribution but also provide a more balanced workload and a deeper understanding of the development process.</br></p>
+<h2 id="bibliography">Bibliography</h2>
+<p>-Technologies, U. (s.d.) Unity - Scripting API: Object.Instantiate. At: https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Object.Instantiate.html (Accessed  05/12/2024).</p>
+<p>-Technologies, U. (s.d.) Unity - Scripting API: MonoBehaviour.StartCoroutine. At: https://docs.unity3d.com/6000.0/Documentation/ScriptReference/MonoBehaviour.StartCoroutine.html (Accessed  05/12/2024).</p>
+<h2 id="declared-assets">Declared Assets</h2>
+<p>@UnityAssetStore. (2022). Superposition Principle - Asset Store. [online] Available at: https://assetstore.unity.com/publishers/67934 [Accessed 4 Dec. 2024]. (@UnityAssetStore, 2022)</p>
+<p>‌ - tile map we used for the level</p>
+<p>Uppbeat.io. (2024). Free Music For Creators. [online] Available at: https://uppbeat.io/browse/search?query=pistol%20gun&amp;type=sfx [Accessed 4 Dec. 2024].(Uppbeat.io, 2024)</p>
+<p>‌ - website we used for our sound effects</p>
+
+</body>
+</html>
