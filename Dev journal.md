@@ -837,9 +837,9 @@ public class LevelSelect : MonoBehaviour
 - [Game Build](https://c6wx.itch.io/eggs-of-vengeance)
 - [Github](https://github.com/C6WX/Eggcode-Studios)
 
-<img width="400" height="200" src="chicken">
+<img width="200" height="200" src="chicken.jpg">
 <br>
-<img width="400" height="200" src="brown mum chicken.png">  
+<img width="200" height="200" src="egg.png">  
 
 # Reflection
 
